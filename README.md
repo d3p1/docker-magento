@@ -17,7 +17,14 @@
 
 ### Development use
 
+*Remember to mention how to configure `/etc/hosts` or `dnsmasq`, and how to create local certificates with `mkcert`*
+
 ## Brief technical overview
+
+## TODOs
+
+- *Automate the generation of a Docker Compose file for Magento version and for each new technology release*
+- *Add healthcheck for each service directly in its Docker image*
 
 ## Changelog
 
