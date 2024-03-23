@@ -3,10 +3,13 @@
 ##
 # @description Install Magento 2 platform
 # @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
-# @note        Magento Cloud PHP CLI image already has an script to install
-#              Magento but it is considered that this script will not work
+# @note        The Magento Cloud PHP CLI image already includes a script to 
+#              install Magento, but it is believed that it may not work properly 
 #              for this project
 # @link        https://github.com/magento/magento-cloud-docker/blob/develop/images/php/cli/bin/magento-installer
+# @link        https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/composer
+# @link        https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/advanced
+# @link        https://github.com/markshust/docker-magento/blob/master/compose/bin/setup-install
 ##
 
 ##
@@ -22,40 +25,6 @@ set -eu
 # @return void
 ##
 main() {
-    ##
-    # @note Install Magento
-    ##
-    _install
-
-    ##
-    # @note Deploy Magento
-    ##
-    _deploy
-
-
-    ##
-    # @note Change ownership to 1000:1000 account to be able to work 
-    #       with source code on the host
-    # @link https://github.com/magento/magento-cloud-docker/blob/develop/images/php/cli/Dockerfile#L75
-    # @link https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
-    ##
-    chown -R www:www .
-
-    ##
-    # @note Return with success
-    ##
-    return 0;
-}
-
-##
-# Install Magento platform
-#
-# @return void
-# @link   https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/composer
-# @link   https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/advanced
-# @link   https://github.com/markshust/docker-magento/blob/master/compose/bin/setup-install
-##
-_install() {
     ##
     # @note Create Magento project
     ##
@@ -104,55 +73,14 @@ _install() {
     --use-rewrites=1 \
     --cleanup-database \
     --no-interaction
+
+    ##
+    # @note Return with success
+    ##
+    return 0;
 }
 
 ##
-# Deploy Magento platform
-#
-# @return void
-##
-_deploy() {
-    ##
-    # @note Set run mode
-    ##
-    bin/magento deploy:mode:set "$MAGENTO_RUN_MODE" --skip-compilation
-    
-    ##
-    # @note Upgrade DB
-    ##
-    bin/magento setup:upgrade
-
-    ##
-    # @note DI compile
-    ##
-    bin/magento setup:di:compile
-
-    ##
-    # @note Deploy static content
-    ##
-    bin/magento setup:static-content:deploy \
-    -f \
-    --jobs="$MAGENTO_STATIC_CONTENT_DEPLOY_JOBS" \
-    "$MAGENTO_LANGUAGE" 
-
-    ##
-    # @note Reindex
-    ##
-    bin/magento indexer:reindex
-
-    ##
-    # @note Enable cache
-    ##
-    bin/magento cache:enable
-
-    ##
-    # @note Clean cache
-    ##
-    bin/magento cache:clean
-    bin/magento cache:flush
-}
-
-##
-# @note Install and deploy Magento
+# @note Install Magento
 ##
 main "$@"

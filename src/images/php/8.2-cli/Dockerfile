@@ -53,7 +53,11 @@ FROM magento/magento-cloud-docker-php:8.2-cli-1.4.0
     ENV MAGENTO_STATIC_CONTENT_DEPLOY_JOBS="2"
 
     ##
-    # @note Add custom script to install a Magento platform
+    # @note Add custom scripts to install and deploy a Magento platform
     ##
-    COPY bin/main.magento-installer.sh /usr/local/bin/
-    RUN chmod +x /usr/local/bin/main.magento-installer.sh
+    COPY bin/install.sh /usr/local/bin/
+    COPY bin/deploy.sh /usr/local/bin/
+    COPY bin/init.sh /usr/local/bin/
+    RUN chmod +x /usr/local/bin/install.sh
+    RUN chmod +x /usr/local/bin/deploy.sh
+    RUN chmod +x /usr/local/bin/init.sh
