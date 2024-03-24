@@ -6,6 +6,7 @@
 
 ##
 # @note Use official Magento Cloud image
+# @note Add custom scripts to init, install and deploy a Magento platform
 # @link https://hub.docker.com/r/magento/magento-cloud-docker-php
 # @link https://github.com/magento/magento-cloud-docker/blob/develop/images/php/cli/Dockerfile
 ##
