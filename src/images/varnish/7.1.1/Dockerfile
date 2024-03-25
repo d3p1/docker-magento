@@ -33,7 +33,17 @@ FROM magento/magento-cloud-docker-varnish:7.1-1.4.0
     
     ##
     # @note Add healthcheck command
+    # @note It is used a 5 minutes delay in the healthcheck (`--start-period`) 
+    #       just in case it is necessary to wait for some 
+    #       Magento install/upgrade/initialization bootstrap logic
+    # @note This `--start-period` is the same as the one used in the 
+    #       `d3p1/magento-nginx` image. However, there is no cleaner or 
+    #       easier way to share this value (as it is not possible to use 
+    #       environment variables inside the `HEALTHCHECK` command). 
+    #       Nevertheless, it is not considered a relevant feature 
+    #       to share this configuration
+    # @link https://hub.docker.com/r/d3p1/magento-nginx
     ##
-    HEALTHCHECK --interval=5s --timeout=5s \
+    HEALTHCHECK --interval=5s --timeout=5s --start-period=3000s \
                 CMD curl --fail 127.0.0.1:"$VARNISH_HTTP_PORT"
     
