@@ -38,6 +38,9 @@
 - *In production, remember to add `600` permissions for `acme.json` file that saves certificate information, to avoid error `traefik-1  | time="2024-03-26T03:03:26Z" level=error msg="The ACME resolver \"le-http\" is skipped from the resolvers list because: unable to get ACME account: permissions 644 for /etc/traefik/acme.json are too open, please use 600"`*
 - *Remove unneeded Nginx certificates created in Magento Cloud image*
 - *Remember to mention: `"OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g" # Set min and max JVM heap sizes to at least 50% of system RAM`*
+- *Create image Elasticsearch*
+- *Check if it is possible to add Traefik labels inside tech stack images*
+- *Remove OpenSearch security plugin by environment variable*
 
 ## Changelog
 
