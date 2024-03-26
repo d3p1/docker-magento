@@ -39,8 +39,9 @@
 - *Remove unneeded Nginx certificates created in Magento Cloud image*
 - *Remember to mention: `"OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g" # Set min and max JVM heap sizes to at least 50% of system RAM`*
 - *Create image Elasticsearch*
-- *Check if it is possible to add Traefik labels inside tech stack images*
+- *Check if it is possible to add Traefik labels inside tech stack images (i.e.: user route host condition with platform URL environment variable)*
 - *Remove OpenSearch security plugin by environment variable*
+- *Check if it is necessary to mount volume inside Nginx container*
 
 ## Changelog
 
