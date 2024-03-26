@@ -1,3 +1,22 @@
+# [1.1.0](https://github.com/d3p1/docker-magento/compare/v1.0.0...v1.1.0) (2024-03-26)
+
+
+### Bug Fixes
+
+* improve Nginx image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([be0190e](https://github.com/d3p1/docker-magento/commit/be0190ea532ee01d483c3887b395db3896a17753))
+
+
+### Features
+
+* init MailHog image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([3302458](https://github.com/d3p1/docker-magento/commit/33024588170599f87e5e58c778c879582a955939))
+* init MariaDB image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([c77c953](https://github.com/d3p1/docker-magento/commit/c77c95340efbda51605bb10df055577c3518842c))
+* init Nginx image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([dfc302a](https://github.com/d3p1/docker-magento/commit/dfc302a0fb9ace18f4482521d459b3ab2f4e9941))
+* init OpenSearch image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([482bf64](https://github.com/d3p1/docker-magento/commit/482bf64b8bb57de659aec9c00a6db3d24c773802))
+* init RabbitMQ image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([15cc46f](https://github.com/d3p1/docker-magento/commit/15cc46f4f929a48e44f9ba1b3f51df62fc9729c7))
+* init Redis image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([e0b496f](https://github.com/d3p1/docker-magento/commit/e0b496f0ff05dfb3585cdffa293d59ce0f24a480))
+* init Traefik image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([21bc379](https://github.com/d3p1/docker-magento/commit/21bc3796978ffd1c2cdd1d4eba7cd0a4b8d6df2d))
+* init Varnish image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([1cde064](https://github.com/d3p1/docker-magento/commit/1cde064a3c4241c997da49350021613323beafbb))
+
 # 1.0.0 (2024-03-24)
 
 
