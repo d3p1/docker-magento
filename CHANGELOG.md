@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/d3p1/docker-magento/compare/v1.1.0...v1.2.0) (2024-03-26)
+
+
+### Features
+
+* init Docker Compose sample files [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([1247e14](https://github.com/d3p1/docker-magento/commit/1247e146b7ff7e302bd92af83c98b6f8fcccc348))
+* init Magento Dev Container configuration [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([8fc4cf4](https://github.com/d3p1/docker-magento/commit/8fc4cf45ed157b4156dcc7faf434089f23e66fc8))
+
 # [1.1.0](https://github.com/d3p1/docker-magento/compare/v1.0.0...v1.1.0) (2024-03-26)
 
 
