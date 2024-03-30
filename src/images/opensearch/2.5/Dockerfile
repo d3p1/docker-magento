@@ -16,7 +16,7 @@ FROM magento/magento-cloud-docker-opensearch:2.5-1.4.0
     #       will live on the same local network as Magento
     # @link https://opensearch.org/docs/latest/install-and-configure/install-opensearch/docker/#working-with-plugins
     ##
-    RUN /usr/share/opensearch/bin/opensearch-plugin remove opensearch-security
+    ENV DISABLE_SECURITY_PLUGIN=true
     
     ##
     # @note Remove unnecessary demo plugin
@@ -33,3 +33,10 @@ FROM magento/magento-cloud-docker-opensearch:2.5-1.4.0
     #       (but they should be set to at least 50% of system RAM)
     ##
     ENV OPENSEARCH_JAVA_OPTS="-Xms1g -Xmx1g"
+
+    ##
+    # @note By default, run as a single node
+    ##
+    ENV discovery.type="single-node"
+
+    
