@@ -19,4 +19,4 @@ FROM magento/magento-cloud-docker-elasticsearch:7.11-1.4.0
     # @note Add default min and max JVM heap sizes 
     #       (but they should be set to at least 50% of system RAM)
     ##
-    ENV OPENSEARCH_JAVA_OPTS="-Xms1g -Xmx1g"
+    ENV ES_JAVA_OPTS="-Xms1g -Xmx1g"
