@@ -55,8 +55,9 @@ services:
       always
 
   fpm_xdebug:
-    image: 
-      d3p1/magento-php:8.2-fpm
+    build:
+      context:
+        ../images/php/8.1-fpm
     expose:
       - 9000
     volumes:
@@ -67,8 +68,9 @@ services:
       - PHP_EXTENSIONS=bcmath bz2 calendar exif gd gettext intl mysqli opcache pdo_mysql redis soap sockets sodium sysvmsg sysvsem sysvshm xsl zip pcntl xdebug
   
   fpm:
-    image: 
-      d3p1/magento-php:8.2-fpm
+    build:
+      context:
+        ../images/php/8.1-fpm
     expose:
       - 9000
     volumes:
@@ -77,8 +79,9 @@ services:
       always
 
   cli:
-    image:
-      d3p1/magento-php:8.2-cli
+    build:
+      context:
+        ../images/php/8.1-cli
     volumes:
       - docroot:/app
     environment:
@@ -112,11 +115,18 @@ services:
       d3p1/magento-opensearch:2.5
     expose:
       - 9200
-    environment:
-      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
-      - discovery.type=single-node
     restart:
       always
+
+  # elasticsearch:
+  #   image:
+  #     d3p1/magento-elasticsearch:7.11
+  #   expose:
+  #     - 9200
+  #   environment:
+  #     - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
+  #   restart:
+  #     always
 
   redis:
     image:
