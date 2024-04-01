@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/d3p1/docker-magento/compare/v1.3.0...v1.4.0) (2024-04-01)
+
+
+### Features
+
+* add base environment variables [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([c859b02](https://github.com/d3p1/docker-magento/commit/c859b029954ac83696f8cc06275e25f3eac370b2))
+
 # [1.3.0](https://github.com/d3p1/docker-magento/compare/v1.2.0...v1.3.0) (2024-04-01)
 
 
