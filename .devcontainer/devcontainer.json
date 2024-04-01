@@ -4,5 +4,14 @@
  */
 {
 	"name" : "Node.js",
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye"
+ "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
+ "customizations": {
+  "vscode": {
+   "extensions": [
+    "timonwong.shellcheck",
+    "ms-azuretools.vscode-docker",
+    "streetsidesoftware.code-spell-checker"
+   ]
+  }
+ }
 }
