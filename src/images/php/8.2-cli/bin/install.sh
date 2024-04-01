@@ -28,14 +28,42 @@ main() {
     ##
     # @note Create Magento project
     ##
-    composer create-project \
-    --repository-url=https://repo.magento.com/ \
-    magento/project-community-edition="$MAGENTO_VERSION" \
-    .
+    _create
 
     ##
     # @note Install Magento
     ##
+    _install
+
+    ##
+    # @note Setup Varnish
+    ##
+    _configure_cache
+
+    ##
+    # @note Return with success
+    ##
+    return 0;
+}
+
+##
+# Create project
+#
+# @return void
+##
+_create() {
+    composer create-project \
+    --repository-url=https://repo.magento.com/ \
+    magento/project-community-edition="$MAGENTO_VERSION" \
+    .
+}
+
+##
+# Install project
+#
+# @return void
+##
+_install() {
     bin/magento setup:install \
     --db-host="$MAGENTO_DB_HOST" \
     --db-name="$MAGENTO_DB_NAME" \
@@ -68,18 +96,23 @@ main() {
     --session-save-redis-log-level="$MAGENTO_SESSION_SAVE_REDIS_LOG_LEVEL" \
     --session-save-redis-db="$MAGENTO_SESSION_SAVE_REDIS_DB" \
     --search-engine="$MAGENTO_SEARCH_ENGINE" \
-    --opensearch-host="$MAGENTO_SEARCH_HOST" \
-    --opensearch-port="$MAGENTO_SEARCH_PORT" \
-    --elasticsearch-host="$MAGENTO_SEARCH_HOST" \
-    --elasticsearch-port="$MAGENTO_SEARCH_PORT" \
+    --opensearch-host="$MAGENTO_OPENSEARCH_HOST" \
+    --opensearch-port="$MAGENTO_OPENSEARCH_PORT" \
+    --elasticsearch-host="$MAGENTO_ELASTICSEARCH_HOST" \
+    --elasticsearch-port="$MAGENTO_ELASTICSEARCH_PORT" \
     --use-rewrites=1 \
     --cleanup-database \
     --no-interaction
+}
 
-    ##
-    # @note Return with success
-    ##
-    return 0;
+##
+# Configure cache
+#
+# @return void
+##
+_configure_cache() {
+    bin/magento setup:config:set --http-cache-hosts="$MAGENTO_VARNISH_HOST"
+    bin/magento config:set system/full_page_cache/caching_application 2 --lock-env
 }
 
 ##

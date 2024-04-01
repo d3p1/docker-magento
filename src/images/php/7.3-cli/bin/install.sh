@@ -28,14 +28,42 @@ main() {
     ##
     # @note Create Magento project
     ##
-    composer create-project \
-    --repository-url=https://repo.magento.com/ \
-    magento/project-community-edition="$MAGENTO_VERSION" \
-    .
+    _create
 
     ##
     # @note Install Magento
     ##
+    _install
+
+    ##
+    # @note Setup Varnish
+    ##
+    _configure_cache
+
+    ##
+    # @note Return with success
+    ##
+    return 0;
+}
+
+##
+# Create project
+#
+# @return void
+##
+_create() {
+    composer create-project \
+    --repository-url=https://repo.magento.com/ \
+    magento/project-community-edition="$MAGENTO_VERSION" \
+    .
+}
+
+##
+# Install project
+#
+# @return void
+##
+_install() {
     bin/magento setup:install \
     --db-host="$MAGENTO_DB_HOST" \
     --db-name="$MAGENTO_DB_NAME" \
@@ -70,11 +98,16 @@ main() {
     --use-rewrites=1 \
     --cleanup-database \
     --no-interaction
+}
 
-    ##
-    # @note Return with success
-    ##
-    return 0;
+##
+# Configure cache
+#
+# @return void
+##
+_configure_cache() {
+    bin/magento setup:config:set --http-cache-hosts="$MAGENTO_VARNISH_HOST"
+    bin/magento config:set system/full_page_cache/caching_application 2 --lock-env
 }
 
 ##
