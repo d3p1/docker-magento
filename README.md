@@ -40,7 +40,7 @@
 - *Remember to mention: `"OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g" # Set min and max JVM heap sizes to at least 50% of system RAM`*
 - *Explain why it is necessary to use env files that get values from environment variables*
 - *Check if it is necessary to mount volume inside Nginx container*
-- *Check if it is correct to use same host environment variable names for container environment variable names*
+- *Explain how to use `BASE_` host environment variables to update container environment variables*
 
 ## Changelog
 
