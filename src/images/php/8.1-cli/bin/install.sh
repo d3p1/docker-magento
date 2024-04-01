@@ -67,9 +67,11 @@ main() {
     --session-save-redis-host="$MAGENTO_SESSION_SAVE_REDIS_HOST" \
     --session-save-redis-log-level="$MAGENTO_SESSION_SAVE_REDIS_LOG_LEVEL" \
     --session-save-redis-db="$MAGENTO_SESSION_SAVE_REDIS_DB" \
+    --search-engine="$MAGENTO_SEARCH_ENGINE" \
     --opensearch-host="$MAGENTO_SEARCH_HOST" \
     --opensearch-port="$MAGENTO_SEARCH_PORT" \
-    --search-engine="$MAGENTO_SEARCH_ENGINE" \
+    --elasticsearch-host="$MAGENTO_SEARCH_HOST" \
+    --elasticsearch-port="$MAGENTO_SEARCH_PORT" \
     --use-rewrites=1 \
     --cleanup-database \
     --no-interaction
