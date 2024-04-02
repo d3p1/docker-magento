@@ -1,153 +1,24 @@
+##
+# @description Services (customizations for production)
+# @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
+# @note        This file is intended to be used as an extension of the 
+#              main/primary `docker-compose.yml`, i.e.:               
+#              `docker compose \ 
+#               -f docker-compose.yml \ 
+#               -f docker-compose.prod.yml \
+#               up -d`
+# @note        Add Traefik configuration to be able to generate platform 
+#              certificates using Let's Encrypt
+##
 services:
   traefik:
-    image:
-      d3p1/magento-traefik:2.10
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./acme.json:/etc/traefik/acme.json
-    ports:
-      - 80:80
-      - 443:443
-    depends_on:
-      - web
-      - proxy
+      - ./services/traefik/etc/acme.json:/etc/traefik/acme.json
     environment:
-      - TRAEFIK_ENTRYPOINTS_WEB_ADDRESS=:80
-      - TRAEFIK_ENTRYPOINTS_WEBSECURE_ADDRESS=:443
-      - TRAEFIK_PING=true
-      - TRAEFIK_PROVIDERS_DOCKER=true
-      - TRAEFIK_CERTIFICATESRESOLVERS_LE-HTTP_ACME_EMAIL=d3p1@d3p1.dev
+      - TRAEFIK_CERTIFICATESRESOLVERS_LE-HTTP_ACME_EMAIL=${BASE_USER_EMAIL}
       - TRAEFIK_CERTIFICATESRESOLVERS_LE-HTTP_ACME_STORAGE=/etc/traefik/acme.json
       - TRAEFIK_CERTIFICATESRESOLVERS_LE-HTTP_ACME_HTTPCHALLENGE_ENTRYPOINT=web
-    restart:
-      always
 
-  proxy:
-    image:
-      d3p1/magento-varnish:7.1.1
-    expose:
-      - 80
-    depends_on:
-      - web
+  varnish:
     labels:
-      - traefik.http.routers.https-magento.entrypoints=websecure
-      - traefik.http.routers.https-magento.tls=true
       - traefik.http.routers.https-magento.tls.certresolver=le-http
-      - traefik.http.routers.https-magento.rule=Host(`traefik.binacommerce.com`) || Host(`www.traefik.binacommerce.com`)
-      - traefik.http.routers.https-magento.service=https-magento
-      - traefik.http.services.https-magento.loadbalancer.server.port=80
-    restart:
-      always
-
-  web:
-    image:
-      d3p1/magento-nginx:1.24
-    expose:
-      - 8080
-    volumes:
-      - docroot:/app
-    depends_on:
-      - fpm
-      - mariadb
-      - redis
-      - opensearch
-      - rabbitmq
-    restart:
-      always
-    labels:
-      - traefik.enable=false
-
-  fpm:
-    image:
-      d3p1/magento-php:8.2-fpm
-    expose:
-      - 9000
-    volumes:
-      - docroot:/app
-    restart:
-      always
-    labels:
-      - traefik.enable=false
-
-  cli:
-    image:
-      d3p1/magento-php:8.2-cli
-    volumes:
-      - docroot:/app
-    environment:
-      - COMPOSER_MAGENTO_USERNAME=5dcea867010d0e4b2bfa4d35ca3a333f
-      - COMPOSER_MAGENTO_PASSWORD=f3c7edaaa8a955de6926c3100f55c5aa
-      - MAGENTO_DB_HOST=mariadb
-      - MAGENTO_BASE_URL=https://traefik.binacommerce.com/
-      - MAGENTO_BASE_URL_SECURE=https://traefik.binacommerce.com/
-    command:
-      init.sh
-    labels:
-      - traefik.enable=false
-
-  mariadb:
-    image:
-      d3p1/magento-mariadb:10.6
-    command:
-      --max_allowed_packet=64M
-      --optimizer_use_condition_selectivity=1
-      --optimizer_switch="rowid_filter=off"
-    expose:
-      - 3306
-    volumes:
-      - dbdata:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=magento
-      - MYSQL_DATABASE=magento
-      - MYSQL_USER=magento
-      - MYSQL_PASSWORD=magento
-    restart:
-      always
-    labels:
-      - traefik.enable=false
-
-  opensearch:
-    image:
-      d3p1/magento-opensearch:2.5
-    expose:
-      - 9200
-    environment:
-      - "OPENSEARCH_JAVA_OPTS=-Xms4g -Xmx4g"
-      - discovery.type=single-node
-    restart:
-      always
-    labels:
-      - traefik.enable=false
-
-  redis:
-    image:
-      d3p1/magento-redis:7.0
-    expose:
-      - 6379
-    restart:
-      always
-    labels:
-      - traefik.enable=false
-
-  rabbitmq:
-    image:
-      d3p1/magento-rabbitmq:3.12
-    expose:
-      - 5672
-    volumes:
-      - rabbitmqdata:/var/lib/rabbitmq
-    environment:
-      - RABBITMQ_HOST=rabbitmq
-      - RABBITMQ_PORT=5672
-      - RABBITMQ_DEFAULT_USER=magento
-      - RABBITMQ_DEFAULT_PASS=magento
-      - RABBITMQ_DEFAULT_VHOST=/
-    restart:
-      always
-    labels:
-      - traefik.enable=false
-
-volumes:
-  docroot:
-  dbdata:
-  rabbitmqdata:
