@@ -1,0 +1,34 @@
+##
+# @description OpenSearch service
+# @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
+# @note        This file is intended to be used as an extension of the 
+#              main/primary `docker-compose.yml` 
+#              (i.e.: using the `-f` flag in `docker compose up` command)
+# @link        https://opensearch.org/docs/latest/install-and-configure/install-opensearch/docker/#sample-docker-composeyml
+##
+services:
+  web:
+    depends_on:
+      - opensearch
+  
+  opensearch:
+    image:
+      d3p1/magento-opensearch:2.5
+    expose:
+      - 9200
+    volumes:
+      - searchdata:/usr/share/opensearch/data
+    env_file:
+      - services/search/opensearch/.env
+    restart:
+      always
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+
+volumes:
+  searchdata:
