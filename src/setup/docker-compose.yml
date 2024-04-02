@@ -72,8 +72,6 @@ services:
       d3p1/magento-php:${BASE_PHP_VERSION}-fpm
     expose:
       - 9000
-    volumes:
-      - docroot:/app
     labels:
       - traefik.enable=false
     restart:
