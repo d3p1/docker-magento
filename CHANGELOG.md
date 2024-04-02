@@ -1,3 +1,24 @@
+# [1.5.0](https://github.com/d3p1/docker-magento/compare/v1.4.0...v1.5.0) (2024-04-02)
+
+
+### Bug Fixes
+
+* adjust Magento search engine environment variable [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([c1f7656](https://github.com/d3p1/docker-magento/commit/c1f765611cbc16228785ec5395d59c4bf28959ba))
+* adjust Traefik configuration in containers [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([3d7d366](https://github.com/d3p1/docker-magento/commit/3d7d3666c35734799098185a39bec61bcc608a44))
+* rename nginx service to web service [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([88ebd82](https://github.com/d3p1/docker-magento/commit/88ebd82b25abf3db57ddc76d5ac7c70fba22c268))
+
+
+### Features
+
+* add default Docker Compose files to setup environment [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([e2d0d73](https://github.com/d3p1/docker-magento/commit/e2d0d739380a3da9c3dced8ed0e6fb9b1657b073))
+* add Elasticsearch Docker Compose file [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([e19944a](https://github.com/d3p1/docker-magento/commit/e19944a5812e1742d35f756e53981d2d55c4db23))
+* add Magento environment values [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([3ed0bea](https://github.com/d3p1/docker-magento/commit/3ed0bea7909cc0a42fac8d75613e9deecd2870ec))
+* add OpenSearch Docker Compose file [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([0e6a8db](https://github.com/d3p1/docker-magento/commit/0e6a8dbbbfbd29d9358fc659170b0444a26dae57))
+* add Traefik configuration files [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([7cefc9f](https://github.com/d3p1/docker-magento/commit/7cefc9fe6fc01fe6e71231d09d279d4424ac8003))
+* init base Docker Compose file [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([017d88d](https://github.com/d3p1/docker-magento/commit/017d88d7183b18bce9a3e59069d88b4b3855bfb3))
+* init Docker Compose file for development environments [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([aa64ab0](https://github.com/d3p1/docker-magento/commit/aa64ab0c776cdfcdfde22f1f29e47aef8413aa5f))
+* init Docker Compose file for production environments [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([6ccb43a](https://github.com/d3p1/docker-magento/commit/6ccb43a50bc8674ddf3097a94d44cf71615bf710))
+
 # [1.4.0](https://github.com/d3p1/docker-magento/compare/v1.3.0...v1.4.0) (2024-04-01)
 
 
