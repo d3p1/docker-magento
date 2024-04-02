@@ -30,6 +30,8 @@ services:
       always
     environment:
       - PHP_EXTENSIONS=bcmath bz2 calendar exif gd gettext intl mysqli opcache pdo_mysql redis soap sockets sodium sysvmsg sysvsem sysvshm xsl zip pcntl xdebug
+    labels:
+      - traefik.enable=false
       
   mailhog:
     image: 
@@ -37,3 +39,6 @@ services:
     expose:
       - 8025
       - 1025
+    labels:
+      - traefik.enable=false
+      
