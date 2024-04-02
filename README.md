@@ -41,6 +41,7 @@
 - *Explain why it is necessary to use env files that get values from environment variables*
 - *Check if it is necessary to mount volume inside Nginx container*
 - *Explain how to use `BASE_` host environment variables to update container environment variables*
+- *Add depends on healthy services in Docker Compose files*
 
 ## Changelog
 
