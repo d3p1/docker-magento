@@ -4,6 +4,12 @@
 # @note        This is a base Docker Compose file that will be extended 
 #              by other files related to the environment 
 #              (i.e., a Docker Compose file for the dev or prod environment)
+# @note        This service naming convention uses the 
+#              underlying technology name for easy identification within 
+#              the infrastructure stack. Currently, the only exception is 
+#              the `web` service. This temporary naming is required for 
+#              `varnish` to correctly identify it as the origin server
+# @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/varnish/7.1.1/etc/default.vcl#L9 
 ##
 services:
   traefik:
