@@ -7,10 +7,19 @@
 #               -f docker-compose.yml \ 
 #               -f docker-compose.dev.yml \
 #               up -d`
-# @note         Add file provider configuration to Traefik to be able to
-#               use locally generated SSL certificates
-# @note         Add PHP-FPM service that enables Xdebug feature
-# @note         Add MailHog service to be able to work with emails locally
+# @note        Add file provider configuration to Traefik to be able to
+#              use locally generated SSL certificates
+# @note        Add PHP-FPM service that enables Xdebug feature
+# @note        Add MailHog service to be able to work with emails locally
+# @note        The service naming convention uses the 
+#              underlying technology name for easy identification within 
+#              the infrastructure stack. There is an exception for 
+#              the `fpm_xdebug` service. This temporary naming is required for 
+#              `web` to correctly identify it as the PHP FPM service to use
+#              when debug feature is enabled
+# @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/nginx/1.24/Dockerfile#L4
+# @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/nginx/1.24/etc/vhost.conf#L41
+# @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/nginx/1.24/etc/xdebug-upstream.conf#L2
 ##
 services:
   traefik:
