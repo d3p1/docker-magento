@@ -1,63 +1,27 @@
+##
+# @description Services (customizations for development)
+# @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
+# @note        This file is intended to be used as an extension of the 
+#              main/primary `docker-compose.yml`, i.e.:               
+#              `docker compose \ 
+#               -f docker-compose.yml \ 
+#               -f docker-compose.dev.yml \
+#               up -d`
+# @note         Add file provider configuration to Traefik to be able to
+#               use locally generated SSL certificates
+# @note         Add PHP-FPM service that enables Xdebug feature
+# @note         Add MailHog service to be able to work with emails locally
+##
 services:
   traefik:
-    image:
-      d3p1/magento-traefik:2.10
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./etc/traefik:/etc/traefik
-    ports:
-      - 80:80
-      - 443:443
-    depends_on:
-      - web
-      - proxy
+      - ./services/traefik/etc:/etc/traefik
     environment:
-      - TRAEFIK_ENTRYPOINTS_WEB_ADDRESS=:80 
-      - TRAEFIK_ENTRYPOINTS_WEBSECURE_ADDRESS=:443
-      - TRAEFIK_PING=true
-      - TRAEFIK_PROVIDERS_DOCKER=true
       - TRAEFIK_PROVIDERS_FILE_DIRECTORY=/etc/traefik/file-provider
-    restart:
-      always
-
-  proxy:
-    image:
-      d3p1/magento-varnish:7.1.1
-    expose:
-      - 80
-    depends_on:
-      - web
-    labels:
-      - traefik.http.routers.https-magento.entrypoints=websecure
-      - traefik.http.routers.https-magento.tls=true
-      - traefik.http.routers.https-magento.rule=Host(`magento.test`) || Host(`www.magento.test`)
-      - traefik.http.routers.https-magento.service=https-magento
-      - traefik.http.services.https-magento.loadbalancer.server.port=80
-    restart:
-      always
-
-  web:
-    image:
-      d3p1/magento-nginx:1.24
-    expose:
-      - 8080
-    volumes:
-      - docroot:/app
-    depends_on:
-      - fpm
-      - mariadb
-      - redis
-      - opensearch
-      - rabbitmq
-    environment:
-      - WITH_XDEBUG=1
-    restart:
-      always
 
   fpm_xdebug:
-    build:
-      context:
-        ../images/php/8.1-fpm
+    image:
+      d3p1/magento-php:${BASE_PHP_VERSION}-fpm
     expose:
       - 9000
     volumes:
@@ -66,100 +30,10 @@ services:
       always
     environment:
       - PHP_EXTENSIONS=bcmath bz2 calendar exif gd gettext intl mysqli opcache pdo_mysql redis soap sockets sodium sysvmsg sysvsem sysvshm xsl zip pcntl xdebug
-  
-  fpm:
-    build:
-      context:
-        ../images/php/8.1-fpm
-    expose:
-      - 9000
-    volumes:
-      - docroot:/app
-    restart:
-      always
-
-  cli:
-    build:
-      context:
-        ../images/php/8.1-cli
-    volumes:
-      - docroot:/app
-    environment:
-      - COMPOSER_MAGENTO_USERNAME=5dcea867010d0e4b2bfa4d35ca3a333f
-      - COMPOSER_MAGENTO_PASSWORD=f3c7edaaa8a955de6926c3100f55c5aa
-      - MAGENTO_DB_HOST=mariadb
-    command: 
-      init.sh
-
-  mariadb:
-    image:
-      d3p1/magento-mariadb:10.6
-    command:
-      --max_allowed_packet=64M
-      --optimizer_use_condition_selectivity=1
-      --optimizer_switch="rowid_filter=off"
-    expose:
-      - 3306
-    volumes:
-      - dbdata:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=magento
-      - MYSQL_DATABASE=magento
-      - MYSQL_USER=magento
-      - MYSQL_PASSWORD=magento
-    restart:
-      always
-
-  opensearch:
-    image:
-      d3p1/magento-opensearch:2.5
-    expose:
-      - 9200
-    restart:
-      always
-
-  # elasticsearch:
-  #   image:
-  #     d3p1/magento-elasticsearch:7.11
-  #   expose:
-  #     - 9200
-  #   environment:
-  #     - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
-  #   restart:
-  #     always
-
-  redis:
-    image:
-      d3p1/magento-redis:7.0
-    expose:
-      - 6379
-    restart:
-      always
       
-  rabbitmq:
-    image:
-      d3p1/magento-rabbitmq:3.12
-    expose:
-      - 5672
-    volumes:
-      - rabbitmqdata:/var/lib/rabbitmq
-    environment:
-      - RABBITMQ_HOST=rabbitmq
-      - RABBITMQ_PORT=5672
-      - RABBITMQ_DEFAULT_USER=magento
-      - RABBITMQ_DEFAULT_PASS=magento
-      - RABBITMQ_DEFAULT_VHOST=/
-    restart:
-      always
-    
   mailhog:
     image: 
       d3p1/magento-mailhog:1.0
     expose:
       - 8025
       - 1025
-
-volumes:
-  docroot:
-  dbdata:
-  rabbitmqdata:
