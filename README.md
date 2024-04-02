@@ -42,6 +42,8 @@
 - *Check if it is necessary to mount volume inside Nginx container*
 - *Explain how to use `BASE_` host environment variables to update container environment variables*
 - *Add depends on healthy services in Docker Compose files*
+- *Document how to use Xdebug with `fpm_xdebug` service*
+- *Document naming service convention used*
 
 ## Changelog
 
