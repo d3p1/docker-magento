@@ -1,0 +1,25 @@
+##
+# @description Traefik file provider TLS configuration
+# @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
+##
+
+##
+# @note Add certificates to enable SSL connection
+# @note This configuration is useful to create certificates 
+#       for development environment
+# @note Create certificates using `mkcert` and move them to the `../certs`
+#       directory. The required files must be called `magento.crt` and
+#       `magento.key` respectively. 
+#       i.e., if it is required to create 
+#       a certificate for the `magento.test` domain, it is possible to execute: 
+#       `mkcert \
+#        -key-file magento.key \
+#        -cert-file magento.crt \
+#        magento.test *.magento.test`
+# @link https://doc.traefik.io/traefik/https/tls/
+# @link https://github.com/FiloSottile/mkcert/
+##
+tls:
+  certificates:
+    - certFile: /etc/traefik/certs/magento.crt
+      keyFile : /etc/traefik/certs/magento.key
