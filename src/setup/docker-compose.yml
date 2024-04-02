@@ -15,7 +15,7 @@ services:
       - 80:80
       - 443:443
     depends_on:
-      - nginx
+      - web
       - varnish
     environment:
       - TRAEFIK_ENTRYPOINTS_WEB_ADDRESS=:80 
@@ -32,7 +32,7 @@ services:
     expose:
       - 80
     depends_on:
-      - nginx
+      - web
     labels:
       - traefik.http.routers.https-magento.entrypoints=websecure
       - traefik.http.routers.https-magento.tls=true
@@ -42,7 +42,7 @@ services:
     restart:
       always
 
-  nginx:
+  web:
     image:
       d3p1/magento-nginx:1.24
     expose:
@@ -55,7 +55,7 @@ services:
       - redis
       - rabbitmq
     env_file:
-      - services/nginx/.env
+      - services/web/.env
     labels:
       - traefik.enable=false
     restart:
