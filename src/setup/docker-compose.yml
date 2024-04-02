@@ -1,0 +1,119 @@
+##
+# @description Services
+# @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
+# @note        This is a base Docker Compose file that will be extended 
+#              by other files related to the environment 
+#              (i.e., a Docker Compose file for the dev or prod environment)
+##
+services:
+  traefik:
+    image:
+      d3p1/magento-traefik:2.10
+    volumes:
+      - ${BASE_DOCKER_PATH}:/var/run/docker.sock
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - nginx
+      - varnish
+    environment:
+      - TRAEFIK_ENTRYPOINTS_WEB_ADDRESS=:80 
+      - TRAEFIK_ENTRYPOINTS_WEBSECURE_ADDRESS=:443
+      - TRAEFIK_PING=true
+      - TRAEFIK_PROVIDERS_DOCKER=true
+      - TRAEFIK_PROVIDERS_FILE_DIRECTORY=/etc/traefik/file-provider
+    restart:
+      always
+
+  varnish:
+    image:
+      d3p1/magento-varnish:7.1.1
+    expose:
+      - 80
+    depends_on:
+      - nginx
+    labels:
+      - traefik.http.routers.https-magento.entrypoints=websecure
+      - traefik.http.routers.https-magento.tls=true
+      - traefik.http.routers.https-magento.rule=Host(`${BASE_URL}`) || Host(`www.${BASE_URL}`)
+      - traefik.http.routers.https-magento.service=https-magento
+      - traefik.http.services.https-magento.loadbalancer.server.port=80
+    restart:
+      always
+
+  nginx:
+    image:
+      d3p1/magento-nginx:1.24
+    expose:
+      - 8080
+    volumes:
+      - docroot:/app
+    depends_on:
+      - fpm
+      - mariadb
+      - redis
+      - rabbitmq
+    env_file:
+      - services/nginx/.env
+    restart:
+      always
+
+  fpm:
+    image:
+      d3p1/magento-php:${BASE_PHP_VERSION}-fpm
+    expose:
+      - 9000
+    volumes:
+      - docroot:/app
+    restart:
+      always
+
+  cli:
+    image:
+      d3p1/magento-php:${BASE_PHP_VERSION}-cli
+    volumes:
+      - docroot:/app
+    env_file:
+      - services/magento/.env
+
+  mariadb:
+    image:
+      d3p1/magento-mariadb:10.6
+    command:
+      --max_allowed_packet=64M
+      --optimizer_use_condition_selectivity=1
+      --optimizer_switch="rowid_filter=off"
+    expose:
+      - 3306
+    volumes:
+      - dbdata:/var/lib/mysql
+    env_file:
+      - services/mariadb/.env
+    restart:
+      always
+
+  redis:
+    image:
+      d3p1/magento-redis:7.0
+    expose:
+      - 6379
+    restart:
+      always
+
+  rabbitmq:
+    image:
+      d3p1/magento-rabbitmq:3.12
+    expose:
+      - 5672
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq
+    env_file:
+      - services/rabbitmq/.env
+    restart:
+      always
+    
+volumes:
+  docroot:
+  dbdata:
+  rabbitmqdata:
