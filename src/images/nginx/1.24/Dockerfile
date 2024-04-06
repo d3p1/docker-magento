@@ -8,6 +8,7 @@
 # @note Use official Magento Cloud image
 # @note Add healthcheck using as reference the excellent implementation in
 #       `markshust/docker-magento` project
+# @note Improve `XDEBUG_HOST` service name
 # @link https://hub.docker.com/r/magento/magento-cloud-docker-nginx
 # @link https://github.com/magento/magento-cloud-docker/blob/develop/images/nginx/1.24/Dockerfile
 # @link https://github.com/markshust/docker-magento/blob/master/compose/compose.healthcheck.yaml#L5
@@ -21,3 +22,7 @@ FROM magento/magento-cloud-docker-nginx:1.24-1.3.6
     HEALTHCHECK --interval=5s --timeout=5s --start-period=3000s \
                 CMD curl --fail 127.0.0.1:"$UPSTREAM_PORT"
     
+    ##
+    # @note Improve `XDEBUG_HOST` service name 
+    ##
+    ENV XDEBUG_HOST="fpm_dev"
