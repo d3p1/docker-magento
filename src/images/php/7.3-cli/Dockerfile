@@ -7,10 +7,20 @@
 ##
 # @note Use official Magento Cloud image
 # @note Add custom scripts to init, install and deploy a Magento platform
+# @note Set the ownership of the working directory to `www`
+#       to enable working with it using the host user
 # @link https://hub.docker.com/r/magento/magento-cloud-docker-php
 # @link https://github.com/magento/magento-cloud-docker/blob/develop/images/php/cli/Dockerfile
 ##
 FROM magento/magento-cloud-docker-php:7.3-cli-1.3.6
+    ##
+    # @note It seems that `ARG` variables like `MAGENTO_ROOT` 
+    #       are not inherited from base images, 
+    #       so it is necessary to define them again
+    # @link https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/php/cli/Dockerfile#L16
+    ##
+    ARG MAGENTO_ROOT="/app"
+
     ##
     # @note Init environment variables required to install a Magento platform
     # @note It is used `MAGENTO_` as a prefix for these environment variables
@@ -54,6 +64,17 @@ FROM magento/magento-cloud-docker-php:7.3-cli-1.3.6
     ENV MAGENTO_SESSION_SAVE_REDIS_DB="2"
     ENV MAGENTO_VARNISH_HOST="varnish"
     ENV MAGENTO_STATIC_CONTENT_DEPLOY_JOBS="2"
+
+    ##
+    # @note Update working directory ownership to `www:www` so it can
+    #       be accessed by the host user (`1000:1000`)
+    # @note Magento official image already set the ownership of
+    #       the working directory to `www:www`, 
+    #       but it appears that the update is not taking effect 
+    #       and the ownership of this directory still remains as `root:root` 
+    # @link https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/php/cli/Dockerfile#L96
+    ##
+    RUN chown -R www:www ${MAGENTO_ROOT}
 
     ##
     # @note Add custom scripts to install and deploy a Magento platform
