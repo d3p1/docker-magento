@@ -14,7 +14,7 @@
 # @note        The service naming convention uses the 
 #              underlying technology name for easy identification within 
 #              the infrastructure stack. There is an exception for 
-#              the `fpm_xdebug` service. This temporary naming is required for 
+#              the `fpm_dev` service. This temporary naming is required for 
 #              `web` to correctly identify it as the PHP FPM service to use
 #              when debug feature is enabled
 # @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/nginx/1.24/Dockerfile#L4
@@ -28,17 +28,17 @@ services:
     environment:
       - TRAEFIK_PROVIDERS_FILE_DIRECTORY=/etc/traefik/file-provider
 
-  fpm_xdebug:
+  fpm_dev:
     image:
-      d3p1/magento-php:${BASE_PHP_VERSION}-fpm
+      d3p1/magento-php:${BASE_PHP_VERSION}-fpm-dev
     expose:
       - 9000
     volumes:
       - docroot:/app
+    env_file:
+      - services/php/.env
     restart:
       always
-    environment:
-      - PHP_EXTENSIONS=bcmath bz2 calendar exif gd gettext intl mysqli opcache pdo_mysql redis soap sockets sodium sysvmsg sysvsem sysvshm xsl zip pcntl xdebug
     labels:
       - traefik.enable=false
       
