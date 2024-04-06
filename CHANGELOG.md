@@ -1,3 +1,23 @@
+# [1.6.0](https://github.com/d3p1/docker-magento/compare/v1.5.0...v1.6.0) (2024-04-06)
+
+
+### Bug Fixes
+
+* adjust Magento mode as environment variable [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([6ab0ee7](https://github.com/d3p1/docker-magento/commit/6ab0ee74645923c3f5a4dd3276c36f0d16dd2472))
+
+
+### Features
+
+* add Magento mode as environment variable [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([aeedcfb](https://github.com/d3p1/docker-magento/commit/aeedcfba79ed7fe55427fa87e7079ae3d548b1e5))
+* add PHP-FPM (with development purpose) image to Docker Compose development configuration [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([c8db639](https://github.com/d3p1/docker-magento/commit/c8db639ef7a8f0e69960501c623da2883c3f5d76))
+* add PHP-FPM (with development purpose) images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([45bcc25](https://github.com/d3p1/docker-magento/commit/45bcc25a53d5ff6233c04bd43beef287f5bfa93b))
+* add www user to Nginx image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([58544c9](https://github.com/d3p1/docker-magento/commit/58544c9906b104b1e7693026a24940ea9574d26f))
+* add www user to PHP CLI images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([33bea3f](https://github.com/d3p1/docker-magento/commit/33bea3fde6f8f09bd70ae5e0dbf787166eeb0eef))
+* add www user to PHP-FPM (with development purpose) images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([7bae83d](https://github.com/d3p1/docker-magento/commit/7bae83d822294297a5a4c24317b79d03ca8070bc))
+* add www user to PHP-FPM images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([7f304cc](https://github.com/d3p1/docker-magento/commit/7f304cc4cbe28b6eeebd33bee5249d49b369df40))
+* improve dev container Magento extensions [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([a41f734](https://github.com/d3p1/docker-magento/commit/a41f7345183256568e54a6e3152a5135c84d278c))
+* improve XDEBUG_HOST service name in Nginx image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([3731519](https://github.com/d3p1/docker-magento/commit/3731519341abce80cb5f1856e2bd33f19d90540c))
+
 # [1.5.0](https://github.com/d3p1/docker-magento/compare/v1.4.0...v1.5.0) (2024-04-02)
 
 
