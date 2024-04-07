@@ -37,6 +37,7 @@
 -- *How PHP CLI init Magento platform script works*
 -- *How PHP CLI cron Magento platform script works*
 -- *How to use Dev Containers and Xdebug in development environment*
+-- *How to enable `cron` and `cli` container using the `COMPOSE_PROFILE` environment variable*
 
 ## Changelog
 
