@@ -25,10 +25,14 @@ FROM magento/magento-cloud-docker-nginx:1.24-1.3.6
     # @note Create `www` user and group (`1000:1000`)
     # @note Update working directory ownership to `www:www` so it can
     #       be accessed by the host user (`1000:1000`)
+    # @note Add `SGID` to folder so it is possible to share `www` group
+    #       with created files
+    # @link https://www.redhat.com/sysadmin/suid-sgid-sticky-bit
     ##
     RUN groupadd -g 1000 www && \
         useradd -g 1000 -u 1000 -d ${MAGENTO_ROOT} -s /bin/bash www
     RUN chown -R www:www ${MAGENTO_ROOT}
+    RUN chmod g+s ${MAGENTO_ROOT}
 
     ##
     # @note It is used a 5 minutes delay in the healthcheck (`--start-period`) 
