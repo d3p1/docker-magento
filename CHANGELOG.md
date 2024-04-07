@@ -1,3 +1,21 @@
+# [1.8.0](https://github.com/d3p1/docker-magento/compare/v1.7.0...v1.8.0) (2024-04-07)
+
+
+### Bug Fixes
+
+* add search service to dev container configuration [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([d1fc7e8](https://github.com/d3p1/docker-magento/commit/d1fc7e8f61464f20972763e0996307c4de4e6d87))
+
+
+### Features
+
+* add cron service [[#6](https://github.com/d3p1/docker-magento/issues/6)] ([e962f5d](https://github.com/d3p1/docker-magento/commit/e962f5dea4996967123596780bf3c2591dc37412))
+* add host dev directory to Docker Compose development configuration file [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([2644cf4](https://github.com/d3p1/docker-magento/commit/2644cf49d5890d2d7e85bfccac570f72478ec265))
+* add init profile to execute Magento installation automatically [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([1fda295](https://github.com/d3p1/docker-magento/commit/1fda2951e121b40f9ce601d064d4c729e5adb0ce))
+* add script to run Magento cron in PHP CLI images [[#6](https://github.com/d3p1/docker-magento/issues/6)] ([5bc1dc9](https://github.com/d3p1/docker-magento/commit/5bc1dc9e5e8cda96ad04d34b3034db52ae4fd9d6))
+* improve working dir permissions for Nginx image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([cb43e37](https://github.com/d3p1/docker-magento/commit/cb43e37c0810c89ae05c263ffd4f1c1fc70b20ca))
+* improve working dir permissions for PHP-FPM images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([3b61eda](https://github.com/d3p1/docker-magento/commit/3b61eda7e243cd8b292c371563d7346ec0631d3c))
+* init environment deploy script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([8bdc103](https://github.com/d3p1/docker-magento/commit/8bdc103c7ea83aeed687eaabf2eac57ce26206d1))
+
 # [1.7.0](https://github.com/d3p1/docker-magento/compare/v1.6.0...v1.7.0) (2024-04-07)
 
 
