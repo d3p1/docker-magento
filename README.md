@@ -24,7 +24,6 @@
 ## TODOs
 
 - Implement:
--- *Improve development environment with folder mount to `fpm_dev` service and `devcontainer.json` configuration*
 -- *Script to deploy development and production environments:*
 --- *Remember to include OpenSearch & Elasticsearch recommended host configuration*
 --- *Remember to update OpenSearch & Elasticsearch JVM heap sizes to be at least 50% of system RAM or limit container RAM*
