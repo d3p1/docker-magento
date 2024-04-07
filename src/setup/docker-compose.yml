@@ -92,6 +92,10 @@ services:
       - docroot:/app
     env_file:
       - services/magento/.env
+    profiles:
+      - init
+    command:
+      init.sh
 
   cron:
     image:
