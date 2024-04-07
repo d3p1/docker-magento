@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/d3p1/docker-magento/compare/v1.6.0...v1.7.0) (2024-04-07)
+
+
+### Features
+
+* add Magento cron job to PHP CLI images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([deccafe](https://github.com/d3p1/docker-magento/commit/deccafec66333cfdd185e325aa343df6af8389f4))
+
 # [1.6.0](https://github.com/d3p1/docker-magento/compare/v1.5.0...v1.6.0) (2024-04-06)
 
 
