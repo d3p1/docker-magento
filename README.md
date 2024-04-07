@@ -23,14 +23,6 @@
 
 ## TODOs
 
-- Implement:
--- *Script to deploy development and production environments:*
---- *Remember to include OpenSearch & Elasticsearch recommended host configuration*
---- *Remember to update OpenSearch & Elasticsearch JVM heap sizes to be at least 50% of system RAM or limit container RAM*
---- *Remember to create Traefik `acme.json` file with `600` permissions to avoid error: `traefik-1  | time="2024-03-26T03:03:26Z" level=error msg="The ACME resolver \"le-http\" is skipped from the resolvers list because: unable to get ACME account: permissions 644 for /etc/traefik/acme.json are too open, please use 600"`*
---- *Remember to export the `BASE_SEARCH_SERVICE` used for `devcontainer.json`*
-
-
 - Describe:
 -- *How to use `BASE_` host environment variables to update container environment variables*
 -- *How PHP CLI init Magento platform script works*
@@ -38,6 +30,8 @@
 -- *How to use Dev Containers and Xdebug in development environment*
 -- *How to enable `cron` and `cli` container using the `COMPOSE_PROFILE` environment variable*
 -- *How Docker Compose files and profiles are used differently to extend infra*
+-- *That the deploy script was only tested in `Debian 12`*
+-- *Explain that the deploy scripts must be run using a user with `sudo` privileges*
 
 ## Changelog
 
