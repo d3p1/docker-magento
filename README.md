@@ -38,6 +38,7 @@
 -- *How PHP CLI cron Magento platform script works*
 -- *How to use Dev Containers and Xdebug in development environment*
 -- *How to enable `cron` and `cli` container using the `COMPOSE_PROFILE` environment variable*
+-- *How Docker Compose files and profiles are used differently to extend infra*
 
 ## Changelog
 
