@@ -4,12 +4,16 @@
  */
  {
 	"name"             : "Magento",
-	"dockerComposeFile": ["../docker-compose.yml", "../docker-compose.dev.yml"],
-	"shutdownAction"   : "stopCompose",
-	"service"          : "fpm_dev",
-	"workspaceFolder"  : "/app",
-    "remoteUser"       : "www",
-    "customizations"   : {
+	"dockerComposeFile": [
+        "../docker-compose.yml", 
+        "../docker-compose.dev.yml",
+        "../services/search/${localEnv:BASE_SEARCH_SERVICE}/docker-compose.yml"
+    ],
+	"shutdownAction" : "stopCompose",
+	"service"        : "fpm_dev",
+	"workspaceFolder": "/app",
+    "remoteUser"     : "www",
+    "customizations" : {
         "vscode": {
             "extensions": [
                 "formulahendry.auto-close-tag",
@@ -34,7 +38,7 @@
             ],
             "settings": {
                 "terminal.integrated.defaultProfile.linux": "bash",
-                "terminal.integrated.profiles.linux": { 
+                "terminal.integrated.profiles.linux"      : { 
                     "bash": { 
                         "path": "/bin/bash" 
                     } 
