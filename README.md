@@ -31,6 +31,7 @@
 --- *Add Elasticsearch or OpenSearch service to Dev Container configuration*
 --- *Remove `chown` from PHP-FPM and PHP CLI images*
 --- *Add `g+s` to working dir so every file/directory is created using `www` user/group*
+--- *Remember to export the `BASE_SEARCH_SERVICE` used for `devcontainer.json`*
 
 - Describe:
 -- *How to use `BASE_` host environment variables to update container environment variables*
