@@ -8,8 +8,14 @@
 #              underlying technology name for easy identification within 
 #              the infrastructure stack. There is an exception for 
 #              the `web` service. This temporary naming is required for 
-#              `varnish` to correctly identify it as the origin server
+#              `varnish` to correctly identify it as the origin server.
+#              Also, the `fpm`, `cli` and `cron` service names 
+#              were used to describe in a cleaner way the container purpose
+# @note        It is added a `cron` profile to the `cron` service so it is
+#              easier to enable it using the `COMPOSE_PROFILES` environment 
+#              variable
 # @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/varnish/7.1.1/etc/default.vcl#L9 
+# @link        https://docs.docker.com/compose/profiles/
 ##
 services:
   traefik:
@@ -86,6 +92,18 @@ services:
       - docroot:/app
     env_file:
       - services/magento/.env
+
+  cron:
+    image:
+      d3p1/magento-php:${BASE_PHP_VERSION}-cli
+    volumes:
+      - docroot:/app
+    env_file:
+      - services/magento/.env
+    profiles:
+      - cron
+    command:
+      run-cron.sh
 
   mariadb:
     image:

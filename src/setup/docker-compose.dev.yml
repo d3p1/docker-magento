@@ -16,7 +16,9 @@
 #              the infrastructure stack. There is an exception for 
 #              the `fpm_dev` service. This temporary naming is required for 
 #              `web` to correctly identify it as the PHP FPM service to use
-#              when debug feature is enabled
+#              when debug feature is enabled.
+#              Also, the `fpm_dev` service name was used to describe 
+#              in a cleaner way the container purpose
 # @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/nginx/1.24/Dockerfile#L4
 # @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/nginx/1.24/etc/vhost.conf#L41
 # @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/nginx/1.24/etc/xdebug-upstream.conf#L2
