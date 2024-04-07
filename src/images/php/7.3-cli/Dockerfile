@@ -9,6 +9,7 @@
 # @note Add custom scripts to init, install and deploy a Magento platform
 # @note Set the ownership of the working directory to `www`
 #       to enable working with it using the host user
+# @note Add Magento cron
 # @link https://hub.docker.com/r/magento/magento-cloud-docker-php
 # @link https://github.com/magento/magento-cloud-docker/blob/develop/images/php/cli/Dockerfile
 ##
@@ -17,9 +18,12 @@ FROM magento/magento-cloud-docker-php:7.3-cli-1.3.6
     # @note It seems that `ARG` variables like `MAGENTO_ROOT` 
     #       are not inherited from base images, 
     #       so it is necessary to define them again
+    # @note For now, it is supposed that every Magento installation
+    #       used with this image will have the `cron:run` command
     # @link https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/php/cli/Dockerfile#L16
     ##
     ARG MAGENTO_ROOT="/app"
+    ARG CRONTAB="* * * * * /usr/local/bin/php ${MAGENTO_ROOT}/bin/magento cron:run 2>&1 | grep -v \"Ran jobs by schedule\" >> ${MAGENTO_ROOT}/var/log/magento.cron.log"
 
     ##
     # @note Init environment variables required to install a Magento platform
@@ -85,3 +89,15 @@ FROM magento/magento-cloud-docker-php:7.3-cli-1.3.6
     RUN chmod +x /usr/local/bin/install.sh
     RUN chmod +x /usr/local/bin/deploy.sh
     RUN chmod +x /usr/local/bin/init.sh
+
+    ##
+    # @note Add cron
+    # @note Execute cron service as foreground by default 
+    #       to avoid container exit
+    # @note Remember that `cron` service reads the `/etc/cron.d` 
+    #       to look for crontabs with cronjobs
+    # @link https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/php/cli/Dockerfile#L97
+    # @link https://lostindetails.com/articles/How-to-run-cron-inside-Docker
+    ##
+    RUN echo "${CRONTAB}" > /etc/cron.d/magento && touch /var/log/cron.log
+    CMD ["cron", "-f"]
