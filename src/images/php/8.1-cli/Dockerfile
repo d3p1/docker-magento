@@ -7,8 +7,7 @@
 ##
 # @note Use official Magento Cloud image
 # @note Add custom scripts to init, install and deploy a Magento platform
-# @note Set the ownership of the working directory to `www`
-#       to enable working with it using the host user
+# @note Improve permissions of the working directory
 # @note Add custom script to run Magento cron
 # @link https://hub.docker.com/r/magento/magento-cloud-docker-php
 # @link https://github.com/magento/magento-cloud-docker/blob/develop/images/php/cli/Dockerfile
@@ -68,15 +67,11 @@ FROM magento/magento-cloud-docker-php:8.1-cli-1.3.7
     ENV MAGENTO_STATIC_CONTENT_DEPLOY_JOBS="2"
 
     ##
-    # @note Update working directory ownership to `www:www` so it can
-    #       be accessed by the host user (`1000:1000`)
-    # @note Magento official image already set the ownership of
-    #       the working directory to `www:www`, 
-    #       but it appears that the update is not taking effect 
-    #       and the ownership of this directory still remains as `root:root` 
-    # @link https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/php/cli/Dockerfile#L96
+    # @note Add `SGID` to folder so it is possible to share `www` group
+    #       with created files
+    # @link https://www.redhat.com/sysadmin/suid-sgid-sticky-bit
     ##
-    RUN chown -R www:www ${MAGENTO_ROOT}
+    RUN chmod g+s ${MAGENTO_ROOT}
 
     ##
     # @note Add custom scripts to install and deploy a Magento platform

@@ -20,32 +20,9 @@
 # @note Use respective PHP-FPM image as base image
 # @note Add Composer so this image could be used for development purpose
 # @note Add Xdebug for debugging purpose
-# @note Update the ownership of the working directory to `www:www` 
-#       so that it can be accessed by the host user. 
-#       Please note that the container user (`www:www` in this case) 
-#       with `UID:GID` `1000:1000` will match the `UID:GID` of the host user
 # @link https://hub.docker.com/r/d3p1/magento-php
 ##
 FROM d3p1/magento-php:7.3-fpm
-     ##
-     # @note It seems that `ARG` variables like `MAGENTO_ROOT` 
-     #       are not inherited from base images, 
-     #       so it is necessary to define them again
-     # @link https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/php/fpm/Dockerfile#L15
-     ##
-     ARG MAGENTO_ROOT="/app"
-
-     ##
-     # @note Update working directory ownership to `www:www` so it can
-     #       be accessed by the host user (`1000:1000`)
-     # @note Magento official image already set the ownership of
-     #       the working directory to `www:www`, 
-     #       but it appears that the update is not taking effect 
-     #       and the ownership of this directory still remains as `root:root` 
-     # @link https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/php/fpm/Dockerfile#L64
-     ##
-     RUN chown -R www:www ${MAGENTO_ROOT}
-
      ##
      # @note Add Composer
      # @link https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/php/cli/Dockerfile#L21
