@@ -24,6 +24,7 @@
 ## TODOs
 
 - Describe:
+-- *How to download it and use it*
 -- *How to use `BASE_` host environment variables to update container environment variables*
 -- *How PHP CLI init Magento platform script works*
 -- *How PHP CLI cron Magento platform script works*
@@ -32,6 +33,7 @@
 -- *How Docker Compose files and profiles are used differently to extend infra*
 -- *That the deploy script was only tested in `Debian 12`*
 -- *Explain that the deploy scripts must be run using a user with `sudo` privileges*
+-- *Advice that for now all scripts to init environment were tested and work in Linux (Debian 12)*
 
 ## Changelog
 
