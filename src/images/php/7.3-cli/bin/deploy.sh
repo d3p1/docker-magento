@@ -51,6 +51,7 @@ main() {
     ##
     bin/magento setup:static-content:deploy \
     -f \
+    -s "$MAGENTO_STATIC_CONTENT_DEPLOY_MODE" \
     --jobs="$MAGENTO_STATIC_CONTENT_DEPLOY_JOBS" \
     "$MAGENTO_LANGUAGE" 
 
