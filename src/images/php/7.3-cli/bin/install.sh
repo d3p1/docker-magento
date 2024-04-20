@@ -13,7 +13,6 @@
 ##
 
 ##
-# 
 # @note Add flag to exit script if there is an error related to a command
 #       or if it is used an undefined variable
 ##
