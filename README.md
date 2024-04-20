@@ -34,6 +34,7 @@
 -- *That the deploy script was only tested in `Debian 12`*
 -- *Explain that the deploy scripts must be run using a user with `sudo` privileges*
 -- *Advice that for now all scripts to init environment were tested and work in Linux (Debian 12)*
+-- *Advice that to execute init scripts is required `bash`*
 
 ## Changelog
 
