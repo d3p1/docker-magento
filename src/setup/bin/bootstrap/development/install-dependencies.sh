@@ -12,6 +12,11 @@
 set -eu
 
 ##
+# @note Import required utilities
+##
+source $BASE_DIR/utility/install-mkcert.sh
+
+##
 # Main
 # 
 # @return void
@@ -45,14 +50,9 @@ _install_mkcert() {
         echo "Installing mkcert tool..."
 
         ##
-        # @note Download in `/tmp` folder and return to current location (`cd -`)
-        # @link https://stackoverflow.com/questions/16362402/save-file-to-specific-folder-with-curl-command
+        # @note Install `mkcert`
         ##
-        cd /tmp                                                         && \
-        curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
-        chmod +x mkcert-v*-linux-amd64                                  && \
-        sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert             && \
-        cd - || exit 1
+        install_mkcert
     fi    
 }
 
