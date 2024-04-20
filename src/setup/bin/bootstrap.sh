@@ -17,6 +17,7 @@ set -eu
 ##
 declare BASE_DIR
 BASE_DIR=$(dirname "${BASH_SOURCE[0]}")
+export BASE_DIR
 
 ##
 # @note Import required utilities
@@ -71,7 +72,7 @@ _execute_bootstrap_script() {
     local script
 
     script="$BASE_DIR/bootstrap/$1"
-    BASE_DIR=$BASE_DIR execute_script "$script" "$2"
+    execute_script "$script" "$2"
 }
 
 ##
