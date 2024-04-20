@@ -17,12 +17,43 @@ set -eu
 # @return void
 ##
 main() {
-    echo "Development dependencies"
+    ##
+    # @note Install `mkcert` to generate locally-trusted SSL certificates
+    ##
+    _install_mkcert
 
     ##
     # @note Return with success
     ##
     return 0
+}
+
+##
+# Install `mkcert` tool
+#
+# @return void
+# @link   https://github.com/FiloSottile/mkcert
+##
+_install_mkcert() {
+    ##
+    # @note Check if `mkcert` is already installed
+    ##
+    if [ -z "$(which mkcert)" ]; then
+        ##
+        # @note Notify `mkcert` installation
+        ##
+        echo "Installing mkcert tool..."
+
+        ##
+        # @note Download in `/tmp` folder and return to current location (`cd -`)
+        # @link https://stackoverflow.com/questions/16362402/save-file-to-specific-folder-with-curl-command
+        ##
+        cd /tmp                                                         && \
+        curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
+        chmod +x mkcert-v*-linux-amd64                                  && \
+        sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert             && \
+        cd - || exit 1
+    fi    
 }
 
 ##
