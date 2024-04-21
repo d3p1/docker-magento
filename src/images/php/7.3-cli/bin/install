@@ -6,6 +6,10 @@
 # @note        The Magento Cloud PHP CLI image already includes a script to 
 #              install Magento, but it is believed that it may not work properly 
 #              for this project
+# @note        A Magento reinstall differs from a Magento install in that 
+#              a Magento install installs the Magento platform, 
+#              while a reinstallation only reconfigures the 
+#              already installed Magento platform
 # @link        https://github.com/magento/magento-cloud-docker/blob/develop/images/php/cli/bin/magento-installer
 # @link        https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/composer
 # @link        https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/advanced
