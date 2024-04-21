@@ -66,6 +66,7 @@ FROM magento/magento-cloud-docker-php:7.3-cli-1.3.6
     ENV MAGENTO_VARNISH_HOST="varnish"
     ENV MAGENTO_STATIC_CONTENT_DEPLOY_MODE="quick"
     ENV MAGENTO_STATIC_CONTENT_DEPLOY_JOBS="2"
+    ENV MAGENTO_COMMAND_PATH="${MAGENTO_ROOT}/bin/magento"
 
     ##
     # @note Add `SGID` to folder so it is possible to share `www` group
