@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/d3p1/docker-magento/compare/v1.9.0...v1.9.1) (2024-04-21)
+
+
+### Bug Fixes
+
+* add lost MAGENTO_COMMAND_PATH environment variable to PHP CLI (v7.3) image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([699c862](https://github.com/d3p1/docker-magento/commit/699c86229faff820c8244c62621ec49ea26f9000))
+
 # [1.9.0](https://github.com/d3p1/docker-magento/compare/v1.8.0...v1.9.0) (2024-04-21)
 
 
