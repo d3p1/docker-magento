@@ -15,7 +15,7 @@ set -eu
 # @note Import required utilities
 ##
 source $BASE_DIR/utility/execute-script.sh
-source $BASE_DIR/utility/install-docker.sh
+source $BASE_DIR/utility/docker/install.sh
 
 ##
 # Main

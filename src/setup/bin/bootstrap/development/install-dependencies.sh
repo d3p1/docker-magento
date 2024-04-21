@@ -14,7 +14,7 @@ set -eu
 ##
 # @note Import required utilities
 ##
-source $BASE_DIR/utility/install-mkcert.sh
+source $BASE_DIR/utility/mkcert/install.sh
 
 ##
 # Main
