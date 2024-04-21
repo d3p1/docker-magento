@@ -1,3 +1,19 @@
+# [1.9.0](https://github.com/d3p1/docker-magento/compare/v1.8.0...v1.9.0) (2024-04-21)
+
+
+### Features
+
+* add base configure host machine script for deploy and adjust launch script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([9b0fb64](https://github.com/d3p1/docker-magento/commit/9b0fb64b4031643a8dda0f51c849d934bb313c27))
+* add configure host machine script for development deploy [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([30e978c](https://github.com/d3p1/docker-magento/commit/30e978c580b973deebeccbf1f2984e7b312760c5))
+* add configure host machine script for production deploy [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([121e4d3](https://github.com/d3p1/docker-magento/commit/121e4d393c4898e0b424be9da55241dbe90c804d))
+* add install dependencies script to deploy environment logic [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([b8302dd](https://github.com/d3p1/docker-magento/commit/b8302dd9e1c01ceb05812c1dc51e6a0e9a4c111d))
+* add reinstall script to PHP CLI images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([e5d05ec](https://github.com/d3p1/docker-magento/commit/e5d05ec71a20aa5537887a751ea842c399708439))
+* add utility to configure Docker for the deploy environment logic [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([3618e3a](https://github.com/d3p1/docker-magento/commit/3618e3ade0d95fb998dbec4a70863e9a898d7960))
+* add utility to get host machine resource for the deploy environment logic [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([dcd03a3](https://github.com/d3p1/docker-magento/commit/dcd03a3518f1433362565a0ea67b40768fcd4a79))
+* improve folder/logic structure of environment deploy script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([acbb3f2](https://github.com/d3p1/docker-magento/commit/acbb3f2cddc1279ea1ef9b7303118d3a514ddad7))
+* improve Magento static content deploy strategy [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([f5096e4](https://github.com/d3p1/docker-magento/commit/f5096e41d3f34edeaefa785206f2b4170e3b602d))
+* init launch script for development deploy [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([57faa03](https://github.com/d3p1/docker-magento/commit/57faa03c3048410c9d47169005eeeba424867f7e))
+
 # [1.8.0](https://github.com/d3p1/docker-magento/compare/v1.7.0...v1.8.0) (2024-04-07)
 
 
