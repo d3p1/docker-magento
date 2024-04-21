@@ -23,6 +23,7 @@ export BASE_DIR
 # @note Import required utilities
 ##
 source $BASE_DIR/lib/execute-script.sh
+source $BASE_DIR/lib/execute-menu.sh
 
 ##
 # Main
@@ -35,7 +36,7 @@ main() {
     ##
     # @note Ask for environment
     ##
-    env=$(_execute_menu \
+    env=$(execute_menu \
           "Environment: " \
           "Development" \
           "Production")
@@ -73,32 +74,6 @@ _execute_bootstrap_script() {
 
     script="$BASE_DIR/bootstrap/$1"
     execute_script "$script" "$2"
-}
-
-##
-# Execute menu
-#
-# @param  string $1 Menu text
-# @param  string $2 Menu options
-# @return string Option text
-# @note   Take into consideration that the option text
-#         is returned as lowecase so it is easier to manage it 
-#         (i.e.: to use it as a key inside the logic to evaluate it and
-#         execute some behaviour)
-# @note   In reality, the `shift` command and the `@` symbol as a rest operator 
-#         are used to retrieve menu options. Consequently, every argument 
-#         following the `$1` parameter is treated as part of `$2`, 
-#         and will be used as a menu option
-##
-_execute_menu() {
-    PS3=$1
-    shift
-    select option in "$@"; do
-        if [ -n "$option" ]; then
-            echo "$option" | tr '[:upper:]' '[:lower:]'
-            break
-        fi
-    done
 }
 
 ##
