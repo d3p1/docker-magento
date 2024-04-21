@@ -33,22 +33,22 @@ main() {
     ##
     # @note Set run mode
     ##
-    bin/magento deploy:mode:set "$MAGENTO_RUN_MODE" --skip-compilation
+    $MAGENTO_COMMAND_PATH deploy:mode:set "$MAGENTO_RUN_MODE" --skip-compilation
     
     ##
     # @note Upgrade DB
     ##
-    bin/magento setup:upgrade
+    $MAGENTO_COMMAND_PATH setup:upgrade
 
     ##
     # @note Compile DI
     ##
-    bin/magento setup:di:compile
+    $MAGENTO_COMMAND_PATH setup:di:compile
 
     ##
     # @note Deploy static content
     ##
-    bin/magento setup:static-content:deploy \
+    $MAGENTO_COMMAND_PATH setup:static-content:deploy \
     -f \
     -s "$MAGENTO_STATIC_CONTENT_DEPLOY_MODE" \
     --jobs="$MAGENTO_STATIC_CONTENT_DEPLOY_JOBS" \
@@ -57,18 +57,18 @@ main() {
     ##
     # @note Reindex
     ##
-    bin/magento indexer:reindex
+    $MAGENTO_COMMAND_PATH indexer:reindex
 
     ##
     # @note Enable cache
     ##
-    bin/magento cache:enable
+    $MAGENTO_COMMAND_PATH cache:enable
 
     ##
     # @note Clean cache
     ##
-    bin/magento cache:clean
-    bin/magento cache:flush
+    $MAGENTO_COMMAND_PATH cache:clean
+    $MAGENTO_COMMAND_PATH cache:flush
 
     ##
     # @note Return with success

@@ -14,18 +14,33 @@ set -eu
 ##
 # Main
 #
+# @param  bool $1 Is reinstall flag
 # @return void
 ##
 main() {
     ##
-    # @note Install Magento
+    # @note Check if it is a reinstall
+    # @note A Magento reinstall differs from a Magento install in that 
+    #       a Magento install installs the Magento platform, 
+    #       while a reinstallation only reconfigures the 
+    #       already installed Magento platform
     ##
-    install.sh
-
+    if [ "$1" -eq 1 ]; then
+        ##
+        # @note Reinstall Magento
+        ##
+        reinstall
+    else
+        ##
+        # @note Install Magento
+        ##
+        install
+    fi
+    
     ##
     # @note Deploy Magento
     ##
-    deploy.sh
+    deploy
 
     ##
     # @note Change ownership to 1000:1000 account to be able to work 
@@ -42,6 +57,6 @@ main() {
 }
 
 ##
-# @note Install and deploy Magento
+# @note Install/Reinstall and deploy Magento
 ##
 main "$@"

@@ -6,7 +6,8 @@
 
 ##
 # @note Use official Magento Cloud image
-# @note Add custom scripts to init, install and deploy a Magento platform
+# @note Add custom scripts to init, install/reinstall 
+#       and deploy a Magento platform
 # @note Improve permissions of the working directory
 # @note Add custom script to run Magento cron
 # @link https://hub.docker.com/r/magento/magento-cloud-docker-php
@@ -74,14 +75,20 @@ FROM magento/magento-cloud-docker-php:7.3-cli-1.3.6
     RUN chmod g+s ${MAGENTO_ROOT}
 
     ##
-    # @note Add custom scripts to install and deploy a Magento platform
+    # @note Add custom scripts to install/reinstall and 
+    #       deploy a Magento platform
     # @note Add custom script to run Magento cron
+    # @note Add custom script to configure Varnish cache
     ##
-    COPY bin/install.sh /usr/local/bin/
-    COPY bin/deploy.sh /usr/local/bin/
-    COPY bin/init.sh /usr/local/bin/
-    COPY bin/run-cron.sh /usr/local/bin/
-    RUN chmod +x /usr/local/bin/install.sh
-    RUN chmod +x /usr/local/bin/deploy.sh
-    RUN chmod +x /usr/local/bin/init.sh
-    RUN chmod +x /usr/local/bin/run-cron.sh
+    COPY bin/init /usr/local/bin/
+    COPY bin/install /usr/local/bin/
+    COPY bin/reinstall /usr/local/bin/
+    COPY bin/deploy /usr/local/bin/
+    COPY bin/run-cron /usr/local/bin/
+    COPY bin/configure-cache /usr/local/bin/
+    RUN chmod +x /usr/local/bin/init
+    RUN chmod +x /usr/local/bin/install
+    RUN chmod +x /usr/local/bin/reinstall
+    RUN chmod +x /usr/local/bin/deploy
+    RUN chmod +x /usr/local/bin/run-cron
+    RUN chmod +x /usr/local/bin/configure-cache

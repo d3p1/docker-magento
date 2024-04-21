@@ -26,7 +26,7 @@ main() {
     # @note This command install cron in crontab if it does not exist, or
     #       dispatches an error and avoid creating it if it exists
     ##
-    bin/magento cron:install
+    $MAGENTO_COMMAND_PATH cron:install
 
     ##
     # @note Execute cron service as foreground by default 

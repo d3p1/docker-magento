@@ -6,6 +6,10 @@
 # @note        The Magento Cloud PHP CLI image already includes a script to 
 #              install Magento, but it is believed that it may not work properly 
 #              for this project
+# @note        A Magento reinstall differs from a Magento install in that 
+#              a Magento install installs the Magento platform, 
+#              while a reinstallation only reconfigures the 
+#              already installed Magento platform
 # @link        https://github.com/magento/magento-cloud-docker/blob/develop/images/php/cli/bin/magento-installer
 # @link        https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/composer
 # @link        https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/advanced
@@ -36,8 +40,9 @@ main() {
 
     ##
     # @note Setup Varnish
+    # @note Use configure Varnish cache custom script
     ##
-    _configure_cache
+    configure-cache
 
     ##
     # @note Return with success
@@ -63,7 +68,7 @@ _create() {
 # @return void
 ##
 _install() {
-    bin/magento setup:install \
+    $MAGENTO_COMMAND_PATH setup:install \
     --db-host="$MAGENTO_DB_HOST" \
     --db-name="$MAGENTO_DB_NAME" \
     --db-user="$MAGENTO_DB_USER" \
@@ -102,16 +107,6 @@ _install() {
     --use-rewrites=1 \
     --cleanup-database \
     --no-interaction
-}
-
-##
-# Configure cache
-#
-# @return void
-##
-_configure_cache() {
-    bin/magento setup:config:set --http-cache-hosts="$MAGENTO_VARNISH_HOST"
-    bin/magento config:set system/full_page_cache/caching_application 2 --lock-env
 }
 
 ##
