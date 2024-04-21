@@ -22,7 +22,7 @@ export BASE_DIR
 ##
 # @note Import required utilities
 ##
-source $BASE_DIR/utility/execute-script.sh
+source $BASE_DIR/lib/execute-script.sh
 
 ##
 # Main

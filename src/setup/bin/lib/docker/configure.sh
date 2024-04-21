@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##
-# @description An utility to configure Docker
+# @description Utilities to configure Docker
 # @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
 # @todo        For now, this utility only works with Debian
 ##

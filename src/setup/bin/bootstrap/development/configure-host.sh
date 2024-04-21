@@ -14,7 +14,7 @@ set -eu
 ##
 # @note Import required utilities
 ##
-source $BASE_DIR/utility/docker/configure.sh
+source $BASE_DIR/lib/docker/configure.sh
 
 ##
 # Main
