@@ -42,15 +42,7 @@ main() {
     return 0
 }
 
-##
-# Normalize DB dump
-#
-# @return void
-# @link   https://github.com/markshust/docker-magento?tab=readme-ov-file#database
-##
-_normalize_db_dump() {
-    sed 's/\sDEFINER=`[^`]*`@`[^`]*`//g' -i src/backup.sql
-}
+
 
 ##
 # Add domain to `/etc/hosts`

@@ -15,6 +15,7 @@ set -eu
 # @note Import required utilities
 ##
 source $BASE_DIR/utility/execute-script.sh
+source $BASE_DIR/utility/get-resources.sh
 
 ##
 # Main
@@ -23,6 +24,12 @@ source $BASE_DIR/utility/execute-script.sh
 # @return void
 ##
 main() {
+    ##
+    # @note Configure Magento static content deploy jobs 
+    #       (it is required by both environments)
+    ##
+    _configure_magento_static_content_deploy_jobs
+
     ##
     # @note Execute script that configures host considering 
     #       respective environment
@@ -33,6 +40,17 @@ main() {
     # @note Return with success
     ##
     return 0
+}
+
+##
+# Configure Magento static content deploy jobs
+#
+# @return void
+##
+_configure_magento_static_content_deploy_jobs() {
+    local MAGENTO_STATIC_CONTENT_DEPLOY_JOBS
+    MAGENTO_STATIC_CONTENT_DEPLOY_JOBS=get_number_cpus
+    export MAGENTO_STATIC_CONTENT_DEPLOY_JOBS
 }
 
 ##
