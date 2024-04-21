@@ -13,7 +13,7 @@
 services:
   traefik:
     volumes:
-      - ./services/traefik/etc/acme.json:/etc/traefik/acme.json
+      - ${TRAEFIK_ACME_FILE_PATH}:/etc/traefik/acme.json
     environment:
       - TRAEFIK_CERTIFICATESRESOLVERS_LE-HTTP_ACME_EMAIL=${BASE_USER_EMAIL}
       - TRAEFIK_CERTIFICATESRESOLVERS_LE-HTTP_ACME_STORAGE=/etc/traefik/acme.json
