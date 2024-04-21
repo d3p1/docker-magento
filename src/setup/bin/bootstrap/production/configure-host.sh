@@ -65,7 +65,7 @@ _configure_docker_rootless_mode() {
 
     ##
     # @note Export environment variable required for 
-    #       our Docker Compose `traefik` service
+    #       Docker Compose `traefik` service
     # @note The `$DOCKER_HOST` variable is created by the rootless mode script
     ##
     BASE_DOCKER_PATH=$DOCKER_HOST
@@ -95,7 +95,7 @@ _configure_search_engine() {
 
     ##
     # @note Export environment variable required for 
-    #       our Docker Compose `elasticsearch` and `opensearch` services
+    #       Docker Compose `elasticsearch` and `opensearch` services
     # @note JVM heap sizes should be at least 50% of system RAM
     # @link https://stackoverflow.com/questions/2441046/how-to-get-the-total-physical-memory-in-bash-to-assign-it-to-a-variable
     # @link https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.htm
@@ -122,7 +122,7 @@ _configure_traefik() {
     #        permissions 644 for /etc/traefik/acme.json are too open, \
     #        please use 600"`
     # @note Export environment variable required for 
-    #       our Docker Compose `traefik`
+    #       Docker Compose `traefik`
     ##
     TRAEFIK_ACME_FILE_PATH="$BASE_DIR/../services/traefik/etc/acme.json"
     touch "$TRAEFIK_ACME_FILE_PATH"
