@@ -68,7 +68,7 @@ _create() {
 # @return void
 ##
 _install() {
-    bin/magento setup:install \
+    $MAGENTO_COMMAND_PATH setup:install \
     --db-host="$MAGENTO_DB_HOST" \
     --db-name="$MAGENTO_DB_NAME" \
     --db-user="$MAGENTO_DB_USER" \
