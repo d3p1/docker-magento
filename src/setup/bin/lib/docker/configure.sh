@@ -12,7 +12,7 @@
 # @return void
 # @link   https://docs.docker.com/engine/install/linux-postinstall/
 ##
-config_docker() {
+configure_docker() {
     ##
     # @note Add user to `docker` group so it is possible to execute `docker`
     #       without `sudo`
@@ -27,7 +27,7 @@ config_docker() {
 # @return void
 # @link   https://docs.docker.com/engine/security/rootless/
 ##
-config_docker_rootless_mode() {
+configure_docker_rootless_mode() {
     ##
     # @note Install required dependencies
     ##
