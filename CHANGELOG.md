@@ -1,3 +1,10 @@
+## [1.10.3](https://github.com/d3p1/docker-magento/compare/v1.10.2...v1.10.3) (2024-05-12)
+
+
+### Bug Fixes
+
+* adjust platform init instruction inside geberal launch script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([4c3f421](https://github.com/d3p1/docker-magento/commit/4c3f42137f2029696d994839dc5cc4585a12a583))
+
 ## [1.10.2](https://github.com/d3p1/docker-magento/compare/v1.10.1...v1.10.2) (2024-05-12)
 
 
