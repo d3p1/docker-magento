@@ -1,3 +1,19 @@
+# [1.10.0](https://github.com/d3p1/docker-magento/compare/v1.9.1...v1.10.0) (2024-05-12)
+
+
+### Bug Fixes
+
+* adjust Docker configuration logic [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([457638d](https://github.com/d3p1/docker-magento/commit/457638d53c133890a9a887506f715aac71bd4e9e))
+
+
+### Features
+
+* add utility to execute a menu for deploy script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([5d6d23f](https://github.com/d3p1/docker-magento/commit/5d6d23f36e63cf0bea1103ea19fd1782e6cc8d14))
+* add utility to normalize MySQL DB dump [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([193fb8d](https://github.com/d3p1/docker-magento/commit/193fb8d0187a02c61dba6dff6872f7237c7b46bd))
+* init launch script for development deploy [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([2d27fd8](https://github.com/d3p1/docker-magento/commit/2d27fd8b9c26c6e749d958a747341d53a76479e6))
+* init launch script for general deploy [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([c4d4c9c](https://github.com/d3p1/docker-magento/commit/c4d4c9c1a0895fef73bd22c50a8dfd97781de1d4))
+* init launch script for production deploy [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([6699238](https://github.com/d3p1/docker-magento/commit/6699238cf970faab5e220dd8b1c71a8129cdeaed))
+
 ## [1.9.1](https://github.com/d3p1/docker-magento/compare/v1.9.0...v1.9.1) (2024-04-21)
 
 
