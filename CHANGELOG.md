@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/d3p1/docker-magento/compare/v1.10.0...v1.10.1) (2024-05-12)
+
+
+### Bug Fixes
+
+* adjust domain variable inside launch script for development environment [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([71bb62d](https://github.com/d3p1/docker-magento/commit/71bb62d971230feab2735b7b142b3b339541040e))
+
 # [1.10.0](https://github.com/d3p1/docker-magento/compare/v1.9.1...v1.10.0) (2024-05-12)
 
 
