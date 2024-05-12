@@ -45,9 +45,9 @@ main() {
 # @link   https://stackoverflow.com/questions/4749330/how-to-test-if-string-exists-in-file-with-bash
 ##
 _add_domain_to_hosts() {
-    if ! grep -q "$DOMAIN" /etc/hosts; then
+    if ! grep -q "$BASE_URL" /etc/hosts; then
         echo "Your system password is needed to add an entry to /etc/hosts..."
-        echo "127.0.0.1 ::1 $DOMAIN" | sudo tee -a /etc/hosts
+        echo "127.0.0.1 ::1 $BASE_URL" | sudo tee -a /etc/hosts
     fi
 }
 
