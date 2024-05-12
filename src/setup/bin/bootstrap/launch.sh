@@ -210,16 +210,16 @@ _launch() {
     # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/images/php/8.2-cli/bin/init#L28
     ##
     echo "Would you like to install a new Magento project? y(es) or n(o)"
-    READ -r is_install
+    read -r is_install
     if [ "$is_install" = "y" ]; then
         docker compose run cli init install
     else
         echo "Would you like to reinstall a Magento project? y(es) or n(o)"
-        READ -r is_reinstall
+        read -r is_reinstall
 
         if [ "$is_reinstall" = "y" ]; then
             echo "Introduce the dump path:"
-            READ -r dump_path    
+            read -r dump_path    
             _init_db "$dump_path"
 
             docker compose run cli init reinstall
