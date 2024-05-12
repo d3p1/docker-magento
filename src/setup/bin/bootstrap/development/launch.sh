@@ -6,23 +6,6 @@
 ##
 
 ##
-# @note Install Docker
-# @note Install mkcert
-# @note Ask platform URL
-# @note Update hosts files
-# @note Prepare SSL
-# @note Update Magento URL variables
-# @note Ask search engine
-# @note Configure search engine
-# @note Ask to init new environment or to create an environment for project
-# @note For existing project, ask for DB dump and remove `DEFINER`
-# @note Init environment
-# @note Deploy DB
-# @note Fot existing project, configure with `config:set` and other methods 
-#       search engine, varnish, redis
-##
-
-##
 # @note Add flag to exit script if there is an error related to a command
 #       or if it is used an undefined variable
 ##
@@ -37,12 +20,21 @@ main() {
     echo "Launch development environment"
 
     ##
+    # @note Add domain to `/etc/hosts` to be able to access project from
+    #       localhost without a DNS proxy configuration 
+    ##
+    _add_domain_to_hosts
+
+    ##
+    # @note Init development environment. Setup required environment variables
+    ##
+    _init_dev_env
+
+    ##
     # @note Return with success
     ##
     return 0
 }
-
-
 
 ##
 # Add domain to `/etc/hosts`
@@ -52,17 +44,39 @@ main() {
 # @link   https://unix.stackexchange.com/questions/464652/is-there-any-difference-between-tee-and-when-using-echo
 # @link   https://stackoverflow.com/questions/4749330/how-to-test-if-string-exists-in-file-with-bash
 ##
-_add_domain_hosts() {
+_add_domain_to_hosts() {
     if ! grep -q "$DOMAIN" /etc/hosts; then
         echo "Your system password is needed to add an entry to /etc/hosts..."
         echo "127.0.0.1 ::1 $DOMAIN" | sudo tee -a /etc/hosts
     fi
 }
 
+##
+# Init development environment
+#
+# @return void
+##
+_init_dev_env() {
     ##
-    # @note Export search service
+    # @note Enable Xdebug in `fmp_dev` service
+    # @note Init Magento in development mode
+    # @link https://github.com/magento/magento-cloud-docker/blob/414e4647902642560a83db8b9ee88541bf6d400e/images/nginx/1.24/docker-entrypoint.sh#L20
+    # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/images/php/8.2-cli/bin/deploy#L36
     ##
-    export BASE_SEARCH_SERVICE="elasticsearch"
+    WITH_XDEBUG="1"
+    MAGENTO_RUN_MODE="development"
+    export WITH_XDEBUG
+    export MAGENTO_RUN_MODE
+
+    ##
+    # @note Enable Docker Compose in development mode 
+    # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/setup/.env#L85
+    ##
+    COMPOSE_FILE="docker-compose.yml:\
+    docker-compose.dev.yml:\
+    services/search/${BASE_SEARCH_SERVICE}/docker-compose.yml"
+    export COMPOSE_FILE
+}
 
 ##
 # @note Call main
