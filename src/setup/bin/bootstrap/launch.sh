@@ -212,7 +212,7 @@ _launch() {
     echo "Would you like to install a new Magento project? y(es) or n(o)"
     read -r is_install
     if [ "$is_install" = "y" ]; then
-        docker compose run cli init install
+        docker compose run cli init 0
     else
         echo "Would you like to reinstall a Magento project? y(es) or n(o)"
         read -r is_reinstall
@@ -222,7 +222,7 @@ _launch() {
             read -r dump_path    
             _init_db "$dump_path"
 
-            docker compose run cli init reinstall
+            docker compose run cli init 1
         fi
     fi
 }
