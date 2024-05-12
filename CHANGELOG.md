@@ -1,3 +1,10 @@
+## [1.10.2](https://github.com/d3p1/docker-magento/compare/v1.10.1...v1.10.2) (2024-05-12)
+
+
+### Bug Fixes
+
+* adjust read instruction inside geberal launch script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([04c78cd](https://github.com/d3p1/docker-magento/commit/04c78cde14b30a058c040f4e68a2cee65829a979))
+
 ## [1.10.1](https://github.com/d3p1/docker-magento/compare/v1.10.0...v1.10.1) (2024-05-12)
 
 
