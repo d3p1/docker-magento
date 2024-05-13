@@ -1,3 +1,11 @@
+## [1.11.1](https://github.com/d3p1/docker-magento/compare/v1.11.0...v1.11.1) (2024-05-13)
+
+
+### Bug Fixes
+
+* adjust mkcert installation [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([677b3d4](https://github.com/d3p1/docker-magento/commit/677b3d4b0b49984b973bd2dc329ace7d593bd187))
+* adjust mkcert SSL certificate generation [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([7c44294](https://github.com/d3p1/docker-magento/commit/7c442948b8f5baec9a61789815c09cbfec85ecf4))
+
 # [1.11.0](https://github.com/d3p1/docker-magento/compare/v1.10.4...v1.11.0) (2024-05-13)
 
 
