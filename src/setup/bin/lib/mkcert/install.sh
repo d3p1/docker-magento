@@ -22,4 +22,9 @@ install_mkcert() {
     chmod +x mkcert-v*-linux-amd64                                  && \
     sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert             && \
     cd - || exit 1
+
+    ##
+    # @note Install CA
+    ##
+    mkcert -install
 }
