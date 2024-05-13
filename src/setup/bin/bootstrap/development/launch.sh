@@ -64,9 +64,9 @@ _init_dev_env() {
     # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/images/php/8.2-cli/bin/deploy#L36
     ##
     WITH_XDEBUG="1"
-    MAGENTO_RUN_MODE="development"
+    BASE_MAGENTO_RUN_MODE="development"
     export WITH_XDEBUG
-    export MAGENTO_RUN_MODE
+    export BASE_MAGENTO_RUN_MODE
 
     ##
     # @note Enable Docker Compose in development mode 
