@@ -1,3 +1,10 @@
+## [1.10.4](https://github.com/d3p1/docker-magento/compare/v1.10.3...v1.10.4) (2024-05-13)
+
+
+### Bug Fixes
+
+* adjust Magento deploy mode inside launch scripts [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([065ca46](https://github.com/d3p1/docker-magento/commit/065ca468cd26e68891a2d742cff30e4229ef328a))
+
 ## [1.10.3](https://github.com/d3p1/docker-magento/compare/v1.10.2...v1.10.3) (2024-05-12)
 
 
