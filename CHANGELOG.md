@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/d3p1/docker-magento/compare/v1.11.1...v1.12.0) (2024-05-13)
+
+
+### Features
+
+* request Magento version for installation in general launch script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([c063a05](https://github.com/d3p1/docker-magento/commit/c063a057daa31e697e4df845bf3e93d462a1a7b2))
+
 ## [1.11.1](https://github.com/d3p1/docker-magento/compare/v1.11.0...v1.11.1) (2024-05-13)
 
 
