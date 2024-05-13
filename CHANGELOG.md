@@ -1,3 +1,11 @@
+# [1.11.0](https://github.com/d3p1/docker-magento/compare/v1.10.4...v1.11.0) (2024-05-13)
+
+
+### Features
+
+* add utility to generate SSL certificates for development environment [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([9d250d9](https://github.com/d3p1/docker-magento/commit/9d250d96e14df46dea3d496b82d6ad961e71b247))
+* generate SSL certificates in launch script for development deploy [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([8f268f7](https://github.com/d3p1/docker-magento/commit/8f268f7ba1e019b68c7e5217b3b2d4f1b667e16a))
+
 ## [1.10.4](https://github.com/d3p1/docker-magento/compare/v1.10.3...v1.10.4) (2024-05-13)
 
 
