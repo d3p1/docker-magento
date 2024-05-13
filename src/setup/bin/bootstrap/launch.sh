@@ -192,6 +192,7 @@ _configure_search_engine() {
 _launch() {
     local is_install
     local is_reinstall
+    local magento_version
     local dump_path
 
     ##
@@ -208,10 +209,16 @@ _launch() {
     #        Docker Compose tech stack)
     # @link https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/composer
     # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/images/php/8.2-cli/bin/init#L28
+    # @link https://github.com/d3p1/docker-magento/blob/fbd61e3da89bc5cb1d2027ae977261f22e19ec06/src/images/php/8.2-cli/Dockerfile#L31
     ##
     echo "Would you like to install a new Magento project? y(es) or n(o)"
     read -r is_install
     if [ "$is_install" = "y" ]; then
+        echo "What Magento version would you like to install?"
+        read -r magento_version
+        MAGENTO_VERSION="$magento_version"
+        export MAGENTO_VERSION
+
         docker compose run cli init 0
     else
         echo "Would you like to reinstall a Magento project? y(es) or n(o)"
