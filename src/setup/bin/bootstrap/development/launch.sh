@@ -12,6 +12,11 @@
 set -eu
 
 ##
+# @note Import required utilities
+##
+source $BASE_DIR/lib/mkcert/generate-ssl-certificates.sh
+
+##
 # Main
 # 
 # @return void
@@ -24,6 +29,16 @@ main() {
     #       localhost without a DNS proxy configuration 
     ##
     _add_domain_to_hosts
+
+    ##
+    # @note Generate SSL certificates with `mkcert` and move them to required
+    #       location so they can used by Traefik
+    # @link https://github.com/d3p1/docker-magento/blob/fbd61e3da89bc5cb1d2027ae977261f22e19ec06/src/setup/services/traefik/etc/file-provider/tls.yml#L22
+    ##
+    generate_ssl_certifcates \
+    "magento" \
+    "$BASE_URL" \
+    "$BASE_DIR/../services/traefik/etc/certs/"
 
     ##
     # @note Init development environment. Setup required environment variables
