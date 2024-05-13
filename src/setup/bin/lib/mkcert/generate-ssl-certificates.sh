@@ -15,11 +15,16 @@
 # @link   https://github.com/FiloSottile/mkcert
 ##
 generate_ssl_certifcates() {    
+    local key
+    local crt
+    
+    key="$1".key
+    crt="$1".crt
     mkcert \
-    -key-file "$1".key \
-    -cert-file "$1".crt \
+    -key-file "$key" \
+    -cert-file "$crt" \
     "$2" "*.$2"
     
-    mv "$1".key "$3"
-    mv "$1".crt "$3"
+    mv "$key" "$3"
+    mv "$crt" "$3"
 }

@@ -22,6 +22,7 @@ source $BASE_DIR/lib/mkcert/generate-ssl-certificates.sh
 # @return void
 ##
 main() {
+    local ssl_cert_dir
     echo "Launch development environment"
 
     ##
@@ -35,10 +36,12 @@ main() {
     #       location so they can used by Traefik
     # @link https://github.com/d3p1/docker-magento/blob/fbd61e3da89bc5cb1d2027ae977261f22e19ec06/src/setup/services/traefik/etc/file-provider/tls.yml#L22
     ##
+    ssl_cert_dir="$BASE_DIR/../services/traefik/etc/certs/"
+    mkdir -p "$ssl_cert_dir"
     generate_ssl_certifcates \
     "magento" \
     "$BASE_URL" \
-    "$BASE_DIR/../services/traefik/etc/certs/"
+    "$ssl_cert_dir"
 
     ##
     # @note Init development environment. Setup required environment variables
