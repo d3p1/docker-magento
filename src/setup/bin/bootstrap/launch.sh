@@ -43,6 +43,12 @@ main() {
     _configure_composer_magento_credentials
 
     ##
+    # @note Configure the PHP version that will be used 
+    #       by the Magento platform
+    ##
+    _configure_php
+
+    ##
     # @note Configure the MariaDB version that will be used 
     #       by the Magento platform
     ##
@@ -145,6 +151,19 @@ _configure_composer_magento_credentials() {
     BASE_COMPOSER_MAGENTO_PASSWORD="$password"
     export BASE_COMPOSER_MAGENTO_USERNAME
     export BASE_COMPOSER_MAGENTO_PASSWORD
+}
+
+##
+# Configure PHP
+#
+# @return void
+##
+_configure_php() {
+    local php_version
+    echo "What PHP version would you like to install?"
+    read -r php_version
+    BASE_PHP_VERSION="$php_version"
+    export BASE_PHP_VERSION
 }
 
 ##
