@@ -1,3 +1,16 @@
+# [1.13.0](https://github.com/d3p1/docker-magento/compare/v1.12.2...v1.13.0) (2024-05-18)
+
+
+### Bug Fixes
+
+* adjust Composer install command for Magento production mode in PHP CLI images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([0dd905c](https://github.com/d3p1/docker-magento/commit/0dd905cb99c990166e75c0491587c7a12ce17267))
+
+
+### Features
+
+* add Magento cache watcher to PHP-FPM (with development purpose) images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([b86a33c](https://github.com/d3p1/docker-magento/commit/b86a33ce281cbe154c769b76f5f2a6f567f66fd1))
+* mount Composer folder into PHP service container to be able to use Composer cache [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([88d82ff](https://github.com/d3p1/docker-magento/commit/88d82ff9df3d6157ea318f51e54b0845fefe8315))
+
 ## [1.12.2](https://github.com/d3p1/docker-magento/compare/v1.12.1...v1.12.2) (2024-05-18)
 
 
