@@ -109,7 +109,7 @@ services:
 
   mariadb:
     image:
-      d3p1/magento-mariadb:10.6
+      d3p1/magento-mariadb:${BASE_MARIADB_VERSION}
     command:
       --max_allowed_packet=64M
       --optimizer_use_condition_selectivity=1

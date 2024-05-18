@@ -43,6 +43,12 @@ main() {
     _configure_composer_magento_credentials
 
     ##
+    # @note Configure the MariaDB version that will be used 
+    #       by the Magento platform
+    ##
+    _configure_mariadb
+
+    ##
     # @note Configure the search engine that will be used 
     #       by the Magento platform
     ##
@@ -139,6 +145,19 @@ _configure_composer_magento_credentials() {
     BASE_COMPOSER_MAGENTO_PASSWORD="$password"
     export BASE_COMPOSER_MAGENTO_USERNAME
     export BASE_COMPOSER_MAGENTO_PASSWORD
+}
+
+##
+# Configure MariaDB
+#
+# @return void
+##
+_configure_mariadb() {
+    local mariadb_version
+    echo "What MariaDB version would you like to install?"
+    read -r mariadb_version
+    BASE_MARIADB_VERSION="$mariadb_version"
+    export BASE_MARIADB_VERSION
 }
 
 ##
