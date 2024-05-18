@@ -28,7 +28,7 @@ main() {
         composer install --no-dev
     else
         composer install
-    fi;
+    fi
 
     ##
     # @note Set run mode
