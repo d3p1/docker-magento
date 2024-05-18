@@ -25,9 +25,9 @@ main() {
     # @note Install packages
     ##
     if [ "$MAGENTO_RUN_MODE" = 'production' ]; then
-        composer install
-    else
         composer install --no-dev
+    else
+        composer install
     fi;
 
     ##
