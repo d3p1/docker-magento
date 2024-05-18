@@ -26,15 +26,24 @@ FROM d3p1/magento-php:8.2-fpm
      ##
      # @note Add Composer
      # @link https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/php/cli/Dockerfile#L21
+     # @link https://stackoverflow.com/questions/27093612/in-a-dockerfile-how-to-update-path-environment-variable
      ##
      ENV COMPOSER_MEMORY_LIMIT=-1
      ENV COMPOSER_ALLOW_SUPERUSER=1
      ENV COMPOSER_HOME="/composer"
+     ENV PATH="${PATH}:${COMPOSER_HOME}/vendor/bin"
      COPY --from=d3p1/magento-php:8.2-cli \
           /usr/local/bin/composer \
           /usr/local/bin/composer
      RUN mkdir ${COMPOSER_HOME}
      RUN chown -R www:www ${COMPOSER_HOME}
+
+     ##
+     # @note Install Magento cache watcher globally to be able to use it
+     #       as a development tool
+     # @link https://github.com/mage2tv/magento-cache-clean
+     ##
+     RUN composer global require mage2tv/magento-cache-clean
 
      ##
      # @note Add Xdebug as current enabled extensions
