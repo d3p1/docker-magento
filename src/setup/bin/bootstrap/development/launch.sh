@@ -77,17 +77,17 @@ _add_domain_to_hosts() {
 _init_dev_env() {
     ##
     # @note Enable Xdebug in `fmp_dev` service
-    # @note Init Magento in development mode
+    # @note Init Magento in developer mode
     # @link https://github.com/magento/magento-cloud-docker/blob/414e4647902642560a83db8b9ee88541bf6d400e/images/nginx/1.24/docker-entrypoint.sh#L20
     # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/images/php/8.2-cli/bin/deploy#L36
     ##
     WITH_XDEBUG="1"
-    BASE_MAGENTO_RUN_MODE="development"
+    BASE_MAGENTO_RUN_MODE="developer"
     export WITH_XDEBUG
     export BASE_MAGENTO_RUN_MODE
 
     ##
-    # @note Enable Docker Compose in development mode 
+    # @note Enable Docker Compose in developer mode 
     # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/setup/.env#L85
     ##
     COMPOSE_FILE="docker-compose.yml:\
