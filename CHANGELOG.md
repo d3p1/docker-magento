@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/d3p1/docker-magento/compare/v1.12.1...v1.12.2) (2024-05-18)
+
+
+### Bug Fixes
+
+* adjust Magento developer mode definition [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([e4124dc](https://github.com/d3p1/docker-magento/commit/e4124dcb54d97808040cbd3b5c54a7a82a5312d9))
+
 ## [1.12.1](https://github.com/d3p1/docker-magento/compare/v1.12.0...v1.12.1) (2024-05-18)
 
 
