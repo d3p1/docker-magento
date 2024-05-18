@@ -90,6 +90,7 @@ services:
       d3p1/magento-php:${BASE_PHP_VERSION}-cli
     volumes:
       - docroot:/app
+      - ~/composer:${BASE_COMPOSER_HOME}
     env_file:
       - services/magento/.env
 
@@ -98,6 +99,7 @@ services:
       d3p1/magento-php:${BASE_PHP_VERSION}-cli
     volumes:
       - docroot:/app
+      - ~/composer:${BASE_COMPOSER_HOME}
     env_file:
       - services/magento/.env
     profiles:
