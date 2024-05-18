@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ##
 # @description Install Magento 2 platform
@@ -100,13 +100,43 @@ _install() {
     --session-save-redis-log-level="$MAGENTO_SESSION_SAVE_REDIS_LOG_LEVEL" \
     --session-save-redis-db="$MAGENTO_SESSION_SAVE_REDIS_DB" \
     --search-engine="$MAGENTO_SEARCH_ENGINE" \
-    --opensearch-host="$MAGENTO_OPENSEARCH_HOST" \
-    --opensearch-port="$MAGENTO_OPENSEARCH_PORT" \
-    --elasticsearch-host="$MAGENTO_ELASTICSEARCH_HOST" \
-    --elasticsearch-port="$MAGENTO_ELASTICSEARCH_PORT" \
+    "$(_get_search_engine_host_setting)" \
+    "$(_get_search_engine_port_setting)" \
     --use-rewrites=1 \
     --cleanup-database \
     --no-interaction
+}
+
+##
+# Get search engine host setting
+#
+# @return string
+# @todo   Improve this logic
+# @todo   Analize if there is a way to implement it using sh native features 
+#         instead of bash features
+##
+_get_search_engine_host_setting() {
+    if [[ $MAGENTO_SEARCH_ENGINE =~ ^elasticsearch* ]]; then
+        echo "--elasticsearch-host=$MAGENTO_ELASTICSEARCH_HOST"
+    else
+        echo "--opensearch-host=$MAGENTO_OPENSEARCH_HOST"
+    fi
+}
+
+##
+# Get search engine port setting
+#
+# @return string
+# @todo   Improve this logic
+# @todo   Analize if there is a way to implement it using sh native features 
+#         instead of bash features
+##
+_get_search_engine_port_setting() {
+    if [[ $MAGENTO_SEARCH_ENGINE =~ ^elasticsearch* ]]; then
+        echo "--elasticsearch-port=$MAGENTO_ELASTICSEARCH_PORT"
+    else
+        echo "--opensearch-port=$MAGENTO_OPENSEARCH_PORT"
+    fi
 }
 
 ##
