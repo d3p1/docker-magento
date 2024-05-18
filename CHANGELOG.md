@@ -1,3 +1,12 @@
+# [1.14.0](https://github.com/d3p1/docker-magento/compare/v1.13.0...v1.14.0) (2024-05-18)
+
+
+### Features
+
+* add MariaDB (v10.4) image [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([e9f788c](https://github.com/d3p1/docker-magento/commit/e9f788c2b26f1d877e2daffefd95fbe9870adb8f))
+* add PHP version selection menu to general launch script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([658fa23](https://github.com/d3p1/docker-magento/commit/658fa2302757ee1acc4b31ab155b69bb27c320c6))
+* improve search engine configuration in install script of PHP CLI images [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([b10d081](https://github.com/d3p1/docker-magento/commit/b10d081db8d969289e1347c1d0e0f45afd730363))
+
 # [1.13.0](https://github.com/d3p1/docker-magento/compare/v1.12.2...v1.13.0) (2024-05-18)
 
 
