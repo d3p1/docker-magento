@@ -256,10 +256,9 @@ _init_db() {
     service_db_dump_path="/tmp/db.sql"
     docker compose cp "$1" mariadb:"$service_db_dump_path"
     docker compose exec mariadb mysql \
-    -u"$MAGENTO_DB_USER" \
-    -p"$MAGENTO_DB_PASSWORD" \
-    -h"$MAGENTO_DB_HOST" \
-    "$MAGENTO_DB_NAME" \
+    -u"$MYSQL_USER" \
+    -p"$MYSQL_PASSWORD" \
+    "$MYSQL_DATABASE" \
     < "$service_db_dump_path" 
 }
 
