@@ -216,8 +216,8 @@ _launch() {
     if [ "$is_install" = "y" ]; then
         echo "What Magento version would you like to install?"
         read -r magento_version
-        MAGENTO_VERSION="$magento_version"
-        export MAGENTO_VERSION
+        BASE_MAGENTO_VERSION="$magento_version"
+        export BASE_MAGENTO_VERSION
 
         docker compose run cli init 0
     else
