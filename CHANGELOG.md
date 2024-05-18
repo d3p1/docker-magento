@@ -1,3 +1,12 @@
+## [1.12.1](https://github.com/d3p1/docker-magento/compare/v1.12.0...v1.12.1) (2024-05-18)
+
+
+### Bug Fixes
+
+* adjust docker installation [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([2503ae7](https://github.com/d3p1/docker-magento/commit/2503ae7fd2ff1409e3d84f0be35a477f9c77a9c4))
+* adjust import db dump [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([383e61a](https://github.com/d3p1/docker-magento/commit/383e61afa11bd8ddad10c9f15d533ac74d70eca5))
+* adjust Magento version definition [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([73e3415](https://github.com/d3p1/docker-magento/commit/73e341526d346a4646a4d07d0ee83eed833662fb))
+
 # [1.12.0](https://github.com/d3p1/docker-magento/compare/v1.11.1...v1.12.0) (2024-05-13)
 
 
