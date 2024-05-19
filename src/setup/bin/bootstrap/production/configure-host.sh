@@ -125,7 +125,7 @@ _configure_traefik() {
     # @note Export environment variable required for 
     #       Docker Compose `traefik`
     ##
-    TRAEFIK_ACME_FILE_PATH="$BASE_DIR/../services/traefik/etc/acme.json"
+    TRAEFIK_ACME_FILE_PATH="./$BASE_DIR/../services/traefik/etc/acme.json"
     touch "$TRAEFIK_ACME_FILE_PATH"
     chmod 600 "$TRAEFIK_ACME_FILE_PATH"
     export TRAEFIK_ACME_FILE_PATH
