@@ -4,7 +4,12 @@
 # @note        This file is intended to be used as an extension of the 
 #              main/primary `docker-compose.yml` 
 #              (i.e.: using the `-f` flag in `docker compose up` command)
+# @note        It is removed the `ulimits` setting recommended by the
+#              documentation because it causes problems with 
+#              Docker rootless mode
 # @link        https://www.elastic.co/guide/en/elasticsearch/reference/8.13/docker.html#_configure_and_start_the_cluster
+# @link        https://github.com/wazuh/wazuh-docker/issues/903#issuecomment-1798120664
+# @link        https://github.com/moby/moby/issues/40942
 ##
 services:
   web:
@@ -22,10 +27,6 @@ services:
       - services/search/elasticsearch/.env
     restart:
       always
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
 
 volumes:
   searchdata:
