@@ -90,9 +90,7 @@ _init_dev_env() {
     # @note Enable Docker Compose in developer mode 
     # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/setup/.env#L85
     ##
-    COMPOSE_FILE="docker-compose.yml:\
-    docker-compose.dev.yml:\
-    services/search/${BASE_SEARCH_SERVICE}/docker-compose.yml"
+    COMPOSE_FILE="docker-compose.yml:docker-compose.dev.yml:services/search/${BASE_SEARCH_SERVICE}/docker-compose.yml"
     export COMPOSE_FILE
 }
 
