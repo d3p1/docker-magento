@@ -1,3 +1,13 @@
+## [1.14.2](https://github.com/d3p1/docker-magento/compare/v1.14.1...v1.14.2) (2024-05-19)
+
+
+### Bug Fixes
+
+* adjust Docker rootless mode configuration on production deployment [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([4290065](https://github.com/d3p1/docker-magento/commit/429006599e8be8c94605b298ff842c4f2b8ba9fc))
+* adjust environment files for Docker Compose services [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([f7badcc](https://github.com/d3p1/docker-magento/commit/f7badcc0795e46796b87d1ad2354971b23e73ac9))
+* adjust search engine configuration on production deployment [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([ad32a17](https://github.com/d3p1/docker-magento/commit/ad32a17b60b03ffd1d63942483e0f55b0f64f91c))
+* enable cron service on production launch [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([49646e3](https://github.com/d3p1/docker-magento/commit/49646e310ad8bfa422f79a51e507ec47b334f2c5))
+
 ## [1.14.1](https://github.com/d3p1/docker-magento/compare/v1.14.0...v1.14.1) (2024-05-19)
 
 
