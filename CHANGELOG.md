@@ -1,3 +1,10 @@
+## [1.14.3](https://github.com/d3p1/docker-magento/compare/v1.14.2...v1.14.3) (2024-05-19)
+
+
+### Bug Fixes
+
+* adjust add vm.max_map_count setting for search engine [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([77be034](https://github.com/d3p1/docker-magento/commit/77be034dde5240de3653d96665ac226cb40be3f1))
+
 ## [1.14.2](https://github.com/d3p1/docker-magento/compare/v1.14.1...v1.14.2) (2024-05-19)
 
 
