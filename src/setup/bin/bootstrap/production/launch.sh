@@ -49,6 +49,13 @@ _init_prod_env() {
     ##
     COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml:services/search/${BASE_SEARCH_SERVICE}/docker-compose.yml"
     export COMPOSE_FILE
+
+    ##
+    # @note Enable Docker Compose profiles (enable `cron` service) 
+    # @link https://docs.docker.com/compose/environment-variables/envvars/#compose_profiles
+    ##
+    COMPOSE_PROFILES="cron"
+    export COMPOSE_PROFILES
 }
 
 ##
