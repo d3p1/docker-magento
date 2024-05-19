@@ -1,3 +1,10 @@
+## [1.14.5](https://github.com/d3p1/docker-magento/compare/v1.14.4...v1.14.5) (2024-05-19)
+
+
+### Bug Fixes
+
+* adjust BASE_DOCKER_PATH environment var for production launch [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([cd3fae4](https://github.com/d3p1/docker-magento/commit/cd3fae417a11cb7b64229eb548cd1e3defd4ffe5))
+
 ## [1.14.4](https://github.com/d3p1/docker-magento/compare/v1.14.3...v1.14.4) (2024-05-19)
 
 
