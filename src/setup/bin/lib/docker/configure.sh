@@ -62,7 +62,8 @@ configure_docker_rootless_mode() {
     #       communicate with it
     ##
     PATH="/usr/bin:$PATH"
-    DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
+    DOCKER_PATH="$XDG_RUNTIME_DIR/docker.sock"
+    DOCKER_HOST="unix://$DOCKER_PATH"
     export PATH
     export DOCKER_HOST
 

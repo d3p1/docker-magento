@@ -65,9 +65,9 @@ _configure_docker_rootless_mode() {
     ##
     # @note Export environment variable required for 
     #       Docker Compose `traefik` service
-    # @note The `$DOCKER_HOST` variable is created by the rootless mode script
+    # @note The `$DOCKER_PATH` variable is created by the rootless mode script
     ##
-    BASE_DOCKER_PATH=$DOCKER_HOST
+    BASE_DOCKER_PATH=$DOCKER_PATH
     export BASE_DOCKER_PATH
 }
 
