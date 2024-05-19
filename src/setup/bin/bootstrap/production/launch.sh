@@ -54,14 +54,6 @@ _init_prod_env() {
     ##
     COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml:services/search/${BASE_SEARCH_SERVICE}/docker-compose.yml"
     export COMPOSE_FILE
-
-    ##
-    # @note Enable Docker Compose profiles (enable `cron` service) 
-    # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/setup/docker-compose.yml#L96
-    # @link https://docs.docker.com/compose/environment-variables/envvars/#compose_profiles
-    ##
-    COMPOSE_PROFILES="cron"
-    export COMPOSE_PROFILES
 }
 
 ##

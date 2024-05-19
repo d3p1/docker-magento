@@ -230,6 +230,7 @@ _configure_search_engine() {
 _launch() {
     local is_install
     local is_reinstall
+    local is_cron_service_started
     local magento_version
     local dump_path
 
@@ -269,6 +270,15 @@ _launch() {
 
             docker compose run cli init 1
         fi
+    fi
+
+    ##
+    # @note Evaluate if it is needed to start cron service
+    ##
+    echo "Would you like to start Magento cron service? y(es) or n(o)"
+    read -r is_cron_service_started
+    if [ "$is_cron_service_started" = "y" ]; then
+        docker compose start cron
     fi
 }
 
