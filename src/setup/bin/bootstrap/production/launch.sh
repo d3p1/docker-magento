@@ -37,10 +37,14 @@ main() {
 ##
 _init_prod_env() {
     ##
+    # @note Disable Xdebug host in `web` service
     # @note Init Magento in production mode
+    # @link https://github.com/magento/magento-cloud-docker/blob/414e4647902642560a83db8b9ee88541bf6d400e/images/nginx/1.24/docker-entrypoint.sh#L20
     # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/images/php/8.2-cli/bin/deploy#L36
     ##
+    WITH_XDEBUG="0"
     BASE_MAGENTO_RUN_MODE="production"
+    export WITH_XDEBUG
     export BASE_MAGENTO_RUN_MODE
 
     ##
