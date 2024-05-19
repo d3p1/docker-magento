@@ -52,8 +52,6 @@ main() {
 # @return void
 ##
 _configure_docker_rootless_mode() {
-    local BASE_DOCKER_PATH
-
     ##
     # @note Notify
     ##
@@ -116,8 +114,6 @@ _configure_search_engine() {
 # @return void
 ##
 _configure_traefik() {
-    local TRAEFIK_ACME_FILE_PATH
-
     ##
     # @note Create file to store SSL certificates
     # @note Set correct permissions to file to avoid error:
