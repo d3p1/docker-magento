@@ -1,3 +1,13 @@
+## [1.14.9](https://github.com/d3p1/docker-magento/compare/v1.14.8...v1.14.9) (2024-05-19)
+
+
+### Bug Fixes
+
+* adjust cron service volumes [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([2a9d037](https://github.com/d3p1/docker-magento/commit/2a9d037b70aff80b2bd37bb740ba612b4f929cc8))
+* adjust RAM memory on search engine configuration for production launch [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([6a21382](https://github.com/d3p1/docker-magento/commit/6a21382d0390427906c2109ff0580f614685629f))
+* adjust Xdebug environment variable that enables/disables Xdebug host in web service [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([9693e5c](https://github.com/d3p1/docker-magento/commit/9693e5cbb5506456512f4798453940029071875a))
+* start cron service on launch after platform is up and running [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([bf86377](https://github.com/d3p1/docker-magento/commit/bf86377f49efd26b5fd00eafedbd4659354491dd))
+
 ## [1.14.8](https://github.com/d3p1/docker-magento/compare/v1.14.7...v1.14.8) (2024-05-19)
 
 
