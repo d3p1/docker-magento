@@ -1,3 +1,10 @@
+## [1.14.7](https://github.com/d3p1/docker-magento/compare/v1.14.6...v1.14.7) (2024-05-19)
+
+
+### Bug Fixes
+
+* remove ulimits from Docker Compose configuration (causes problems in rootless mode) [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([3484fa3](https://github.com/d3p1/docker-magento/commit/3484fa32a2771379b2ad1a2d6efb1a2874f7a0d8))
+
 ## [1.14.6](https://github.com/d3p1/docker-magento/compare/v1.14.5...v1.14.6) (2024-05-19)
 
 
