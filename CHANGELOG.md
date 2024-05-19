@@ -1,3 +1,11 @@
+## [1.14.1](https://github.com/d3p1/docker-magento/compare/v1.14.0...v1.14.1) (2024-05-19)
+
+
+### Bug Fixes
+
+* adjust COMPOSE environment variable definition [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([5a924ca](https://github.com/d3p1/docker-magento/commit/5a924caa470d2b3f46848641752d14b253d52b46))
+* adjust script execution instruction [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([a96d8c2](https://github.com/d3p1/docker-magento/commit/a96d8c26ef8dee1bcf2cf20f01ee7f7ad0b3eeab))
+
 # [1.14.0](https://github.com/d3p1/docker-magento/compare/v1.13.0...v1.14.0) (2024-05-18)
 
 
