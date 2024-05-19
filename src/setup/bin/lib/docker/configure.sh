@@ -61,8 +61,10 @@ configure_docker_rootless_mode() {
     # @note Configure new docker socket path so client knows how to 
     #       communicate with it
     ##
-    echo "export PATH=/usr/bin:$PATH" >> ~/.bashrc
-    echo "export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock" >> ~/.bashrc
+    PATH="/usr/bin:$PATH"
+    DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
+    export PATH
+    export DOCKER_HOST
 
     ##
     # @note Enable the possibility to map priviliged ports (like `80` or `443`)
