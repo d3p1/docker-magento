@@ -83,6 +83,7 @@ _configure_docker_rootless_mode() {
 ##
 _configure_search_engine() {
     local MEM
+    local SEARCH_ENGINE_MEM
 
     ##
     # @note Set required `vm.max_map_count`
@@ -104,7 +105,8 @@ _configure_search_engine() {
     # @link https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.htm
     ##
     MEM=$(get_ram_mem)
-    export BASE_SEARCH_JAVA_OPTS="-Xms${MEM}k -Xmx${MEM}k"
+    SEARCH_ENGINE_MEM=$(( MEM / 2 ))
+    export BASE_SEARCH_JAVA_OPTS="-Xms${SEARCH_ENGINE_MEM}k -Xmx${SEARCH_ENGINE_MEM}k"
 
 }
 
