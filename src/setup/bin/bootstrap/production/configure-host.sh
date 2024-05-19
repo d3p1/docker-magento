@@ -89,8 +89,12 @@ _configure_search_engine() {
     ##
     # @note Set required `vm.max_map_count`
     # @note Disable memory paging and swapping
+    # @link https://stackoverflow.com/questions/4749330/how-to-test-if-string-exists-in-file-with-bash
+    # @todo Create an utility function with this `grep` command
     ##
-    echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
+    if ! grep -Fxq "vm.max_map_count=262144" /etc/sysctl.conf; then
+        echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
+    fi
     sudo sysctl -p
     sudo swapoff -a
 
