@@ -103,7 +103,7 @@ _configure_search_engine() {
     # @link https://stackoverflow.com/questions/2441046/how-to-get-the-total-physical-memory-in-bash-to-assign-it-to-a-variable
     # @link https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.htm
     ##
-    MEM=get_ram_mem
+    MEM=$(get_ram_mem)
     export BASE_SEARCH_JAVA_OPTS="-Xms${MEM}k -Xmx${MEM}k"
 
 }
