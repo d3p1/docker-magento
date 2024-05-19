@@ -21,11 +21,22 @@ execute_script() {
 
     ##
     # @note Validate and execute script
+    # @note It is used "dot space script" calling syntax 
+    #       (it is like `source` command), so it is used current shell to
+    #       execute the script (and it is not created a sub-shell that avoids
+    #       the definition of environment variable that can be used in 
+    #       main shell script).
+    #       It is not possible to use the `exec` command because this command
+    #       replace main shell script (instead of reusing it), so when the
+    #       executed script tries to return to main shell script, it does not
+    #       exist and the script terminates unexpectedly
+    # @link https://stackoverflow.com/questions/496702/can-a-shell-script-set-environment-variables-of-the-calling-shell
+    # @link https://stackoverflow.com/questions/16618071/can-i-export-a-variable-to-the-environment-from-a-bash-script-without-sourcing-i
     ##
     script=$1
     shift
     if [ -e "$script" ]; then
-        $script "$@"
+        . "$script" "$@"
     fi
 
     ##
