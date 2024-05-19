@@ -52,6 +52,7 @@ _init_prod_env() {
 
     ##
     # @note Enable Docker Compose profiles (enable `cron` service) 
+    # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/setup/docker-compose.yml#L96
     # @link https://docs.docker.com/compose/environment-variables/envvars/#compose_profiles
     ##
     COMPOSE_PROFILES="cron"
