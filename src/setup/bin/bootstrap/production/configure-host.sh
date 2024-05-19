@@ -90,7 +90,7 @@ _configure_search_engine() {
     # @note Set required `vm.max_map_count`
     # @note Disable memory paging and swapping
     ##
-    echo "vm.max_map_count=262144" >> /etc/sysctl.conf
+    echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
     sudo sysctl -p
     sudo swapoff -a
 
