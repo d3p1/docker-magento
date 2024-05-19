@@ -1,3 +1,10 @@
+## [1.14.6](https://github.com/d3p1/docker-magento/compare/v1.14.5...v1.14.6) (2024-05-19)
+
+
+### Bug Fixes
+
+* adjust TRAEFIK_ACME_FILE_PATH environment var for production launch [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([74f8763](https://github.com/d3p1/docker-magento/commit/74f876338952119942f55f07e11b113eb5a823b8))
+
 ## [1.14.5](https://github.com/d3p1/docker-magento/compare/v1.14.4...v1.14.5) (2024-05-19)
 
 
