@@ -300,14 +300,13 @@ _init_db() {
     ##
     # @note The DB dump is copied to the DB service to be able to migrate it
     #       using service commands
+    # @note It is executed the DB dump migration command within a new 
+    #       container shell to be able to use container environment variables
+    # @link https://superuser.com/questions/1628497/docker-exec-with-dollar-variable
     ##
-    service_db_dump_path="/tmp/db.sql"
-    docker compose cp "$1" mariadb:"$service_db_dump_path"
-    docker compose exec mariadb mysql \
-    -u"$MYSQL_USER" \
-    -p"$MYSQL_PASSWORD" \
-    "$MYSQL_DATABASE" \
-    < "$service_db_dump_path" 
+    docker compose cp "$1" mariadb:/tmp/db.sql
+    docker compose exec mariadb sh -c \
+    'mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" < /tmp/db.sql' 
 }
 
 ##
