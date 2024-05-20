@@ -1,3 +1,10 @@
+## [1.14.10](https://github.com/d3p1/docker-magento/compare/v1.14.9...v1.14.10) (2024-05-20)
+
+
+### Bug Fixes
+
+* adjust DB initialization on general launch script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([702e598](https://github.com/d3p1/docker-magento/commit/702e5980d68459e5d09b87871219bcc704e1ea1c))
+
 ## [1.14.9](https://github.com/d3p1/docker-magento/compare/v1.14.8...v1.14.9) (2024-05-19)
 
 
