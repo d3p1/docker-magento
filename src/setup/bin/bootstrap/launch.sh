@@ -289,8 +289,6 @@ _launch() {
 # @return void
 ##
 _init_db() {
-    local service_db_dump_path
-
     ##
     # @note It is normalized DB dump to avoid user permission errors
     # @link https://github.com/markshust/docker-magento?tab=readme-ov-file#database
