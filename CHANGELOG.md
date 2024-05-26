@@ -1,3 +1,11 @@
+# [1.15.0](https://github.com/d3p1/docker-magento/compare/v1.14.10...v1.15.0) (2024-05-26)
+
+
+### Features
+
+* add utility to envsubst a file [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([6803130](https://github.com/d3p1/docker-magento/commit/6803130c2ea0a28a914b90b26838323cdc99542d))
+* generate infra files after launch [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([3cc15c3](https://github.com/d3p1/docker-magento/commit/3cc15c3c3b674805e5dc7dcae84d6155964c0c25))
+
 ## [1.14.10](https://github.com/d3p1/docker-magento/compare/v1.14.9...v1.14.10) (2024-05-20)
 
 
