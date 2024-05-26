@@ -16,6 +16,7 @@ set -eu
 ##
 source $BASE_DIR/lib/execute-script.sh
 source $BASE_DIR/lib/execute-menu.sh
+source $BASE_DIR/lib/envsubst-file.sh
 source $BASE_DIR/lib/mysql/normalize-dump.sh
 
 ##
@@ -280,6 +281,41 @@ _launch() {
     if [ "$is_cron_service_started" = "y" ]; then
         docker compose start cron
     fi
+
+    ##
+    # @note Generate infra files so it is possible to continue using the
+    #       defined environment configuration
+    ##
+    _generate_infra_files
+}
+
+##
+# Generate infra files
+#
+# @return void
+# @todo   Improve copy logic
+##
+_generate_infra_files() {
+    ##
+    # @note Copy required infra files inside current folder
+    ##
+    cp "$BASE_DIR/../.env" .env
+    cp "$BASE_DIR/../docker-compose.dev.yml" docker-compose.dev.yml
+    cp "$BASE_DIR/../docker-compose.prod.yml" docker-compose.prod.yml
+    cp "$BASE_DIR/../docker-compose.yml" docker-compose.yml
+    cp -R "$BASE_DIR/../.devcontainer" ./.devcontainer
+    cp -R "$BASE_DIR/../services" ./services
+    
+    ##
+    # @note Replace environment variables inside `.env` files with
+    #       defined environment variables during this setup script
+    ##
+    find ./services -f -name ".env" -exec bash -c 'envsubst_file "$1"' _ {} \;
+
+    ##
+    # @note Remove unneeded Traefik `.gitignore` file
+    ##
+    rm ./services/traefik/.gitignore
 }
 
 ##
