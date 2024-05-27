@@ -96,6 +96,23 @@ _init_dev_env() {
 }
 
 ##
+# Link source code to required project containers
+#
+# @return void
+# @link   https://github.com/d3p1/docker-magento/blob/3cc15c3c3b674805e5dc7dcae84d6155964c0c25/src/setup/docker-compose.dev.yml#L48
+##
+_link_source_code() {
+    local source_code_path
+    echo "Would you like to use an already installed Magento project? \
+          Introduce the absolute path:"
+    read -r source_code_path
+    if [ -n "$source_code_path" ]; then
+        BASE_DEV_DOC_ROOT_DIR="$source_code_path"
+        export BASE_DEV_DOC_ROOT_DIR
+    fi
+}
+
+##
 # @note Call main
 ##
 main "$@"
