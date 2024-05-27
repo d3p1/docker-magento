@@ -103,8 +103,7 @@ _init_dev_env() {
 ##
 _link_source_code() {
     local source_code_path
-    echo "Would you like to use an already installed Magento project? \
-          Introduce the absolute path:"
+    echo "Would you like to use an specific path to work with the project:"
     read -r source_code_path
     if [ -n "$source_code_path" ]; then
         BASE_DEV_DOC_ROOT_DIR="$source_code_path"
