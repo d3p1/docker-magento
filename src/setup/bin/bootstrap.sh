@@ -57,6 +57,11 @@ main() {
     _execute_bootstrap_script "launch.sh" "$env"
 
     ##
+    # @note Start services in launched environment
+    ##
+    _execute_bootstrap_script "startup"
+
+    ##
     # @note Return with success
     ##
     return 0
