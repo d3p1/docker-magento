@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/d3p1/docker-magento/compare/v1.16.0...v1.16.1) (2024-05-27)
+
+
+### Bug Fixes
+
+* adjust text that asks for source code path definition [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([828f8c1](https://github.com/d3p1/docker-magento/commit/828f8c19a41fff176d6f9a0051186d5c6ded586b))
+
 # [1.16.0](https://github.com/d3p1/docker-magento/compare/v1.15.0...v1.16.0) (2024-05-27)
 
 
