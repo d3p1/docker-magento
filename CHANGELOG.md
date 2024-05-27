@@ -1,3 +1,11 @@
+# [1.16.0](https://github.com/d3p1/docker-magento/compare/v1.15.0...v1.16.0) (2024-05-27)
+
+
+### Features
+
+* add the possibility to define source code path for dev environment [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([dbc5fe8](https://github.com/d3p1/docker-magento/commit/dbc5fe88cee90e12b8c1a9cc37d04e5703757c8c))
+* init startup script for launched environment [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([79b77ca](https://github.com/d3p1/docker-magento/commit/79b77ca5c13973380b237d32448c5d25827d6ece))
+
 # [1.15.0](https://github.com/d3p1/docker-magento/compare/v1.14.10...v1.15.0) (2024-05-26)
 
 
