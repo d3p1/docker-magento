@@ -20,8 +20,3 @@ Thumbs.db
 .idea
 .vscode
 *.code-workspace
-
-##
-# @note Base dev document root dir
-##
-src/setup/www/
