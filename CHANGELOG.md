@@ -1,3 +1,13 @@
+## [1.16.2](https://github.com/d3p1/docker-magento/compare/v1.16.1...v1.16.2) (2024-05-28)
+
+
+### Bug Fixes
+
+* adjust add Traefik gitignore into generated infra files [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([a4cd8ad](https://github.com/d3p1/docker-magento/commit/a4cd8ad41a3af0bf36209b4d27382972c3479cdc))
+* adjust envsubst logic to correctly generate infra files [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([eeb6a4f](https://github.com/d3p1/docker-magento/commit/eeb6a4f6c8293220e01776d9f3eeb617a8e67bd3))
+* adjust find command for infra files generation [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([111c01e](https://github.com/d3p1/docker-magento/commit/111c01e7ddbdb57c87ed15300434a34383d4c7dc))
+* adjust startup script execution [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([e6cad4b](https://github.com/d3p1/docker-magento/commit/e6cad4bdcb83d1f797c7388a3ce51e3433b163d4))
+
 ## [1.16.1](https://github.com/d3p1/docker-magento/compare/v1.16.0...v1.16.1) (2024-05-27)
 
 
