@@ -248,12 +248,12 @@ _generate_infra_files() {
     ##
     # @note Copy required infra files inside current folder
     ##
-    cp "$BASE_DIR/../etc/.env" .env
-    cp "$BASE_DIR/../etc/docker-compose.dev.yml" docker-compose.dev.yml
-    cp "$BASE_DIR/../etc/docker-compose.prod.yml" docker-compose.prod.yml
-    cp "$BASE_DIR/../etc/docker-compose.yml" docker-compose.yml
-    cp -R "$BASE_DIR/../etc/.devcontainer" ./.devcontainer
-    cp -R "$BASE_DIR/../etc/services" ./services
+    cp "$BASE_DIR/etc/.env" .env
+    cp "$BASE_DIR/etc/docker-compose.dev.yml" docker-compose.dev.yml
+    cp "$BASE_DIR/etc/docker-compose.prod.yml" docker-compose.prod.yml
+    cp "$BASE_DIR/etc/docker-compose.yml" docker-compose.yml
+    cp -R "$BASE_DIR/etc/.devcontainer" ./.devcontainer
+    cp -R "$BASE_DIR/etc/services" ./services
     
     ##
     # @note Replace environment variables inside `.env` files with
