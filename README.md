@@ -1,6 +1,6 @@
 <div align=center>
 
-# [DOCKER + MAGENTO = DOCKGENTO]
+# [DOCKGENTO]
 
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 [![Release](https://github.com/d3p1/docker-magento/actions/workflows/release.yml/badge.svg)](https://github.com/d3p1/docker-magento/actions/workflows/release.yml)
@@ -8,6 +8,8 @@
 </div>
 
 ## Introduction
+
+*DOCKER + MAGENTO = DOCKGENTO*
 
 ## Usage
 
