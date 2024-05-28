@@ -71,14 +71,19 @@ main() {
 # Execute bootstrap script
 #
 # @param  string $1 Script name
-# @param  string $2 Environment key
+# @param  string $2 Script params
 # @return void
+# @note   In reality, the `shift` command and the `@` symbol as a rest operator 
+#         are used to retrieve script parameters. Consequently, every argument 
+#         following the `$1` parameter is treated as part of `$2`, 
+#         and will be used as a script parameter
 ##
 _execute_bootstrap_script() {
     local script
 
     script="$BASE_DIR/bootstrap/$1"
-    execute_script "$script" "$2"
+    shift
+    execute_script "$script" "$@"
 }
 
 ##
