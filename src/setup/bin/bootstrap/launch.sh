@@ -95,8 +95,8 @@ _configure_domain() {
     #       our Docker Compose `web` service (the Magento platform requires
     #       it to set the base URLs)
     ##
-    BASE_URL="$domain"
-    export BASE_URL 
+    SCRIPT_BASE_URL="$domain"
+    export SCRIPT_BASE_URL 
 }
 
 ##
@@ -120,8 +120,8 @@ _configure_email_address() {
     #       (it requires it to generate the SSL certificates using this email)
     #       
     ##
-    BASE_USER_EMAIL="$email"
-    export BASE_USER_EMAIL
+    SCRIPT_BASE_USER_EMAIL="$email"
+    export SCRIPT_BASE_USER_EMAIL
 }
 
 ##
@@ -146,10 +146,10 @@ _configure_composer_magento_credentials() {
     #       our Docker Compose `cli` service (the Magento platform requires
     #       it to download platform packages)
     ##
-    BASE_COMPOSER_MAGENTO_USERNAME="$username"
-    BASE_COMPOSER_MAGENTO_PASSWORD="$password"
-    export BASE_COMPOSER_MAGENTO_USERNAME
-    export BASE_COMPOSER_MAGENTO_PASSWORD
+    SCRIPT_COMPOSER_MAGENTO_USERNAME="$username"
+    SCRIPT_COMPOSER_MAGENTO_PASSWORD="$password"
+    export SCRIPT_COMPOSER_MAGENTO_USERNAME
+    export SCRIPT_COMPOSER_MAGENTO_PASSWORD
 }
 
 ##
@@ -161,8 +161,8 @@ _configure_php() {
     local php_version
     echo "What PHP version would you like to install?"
     read -r php_version
-    BASE_PHP_VERSION="$php_version"
-    export BASE_PHP_VERSION
+    SCRIPT_PHP_VERSION="$php_version"
+    export SCRIPT_PHP_VERSION
 }
 
 ##
@@ -174,8 +174,8 @@ _configure_mariadb() {
     local mariadb_version
     echo "What MariaDB version would you like to install?"
     read -r mariadb_version
-    BASE_MARIADB_VERSION="$mariadb_version"
-    export BASE_MARIADB_VERSION
+    SCRIPT_MARIADB_VERSION="$mariadb_version"
+    export SCRIPT_MARIADB_VERSION
 }
 
 ##
@@ -202,23 +202,23 @@ _configure_search_engine() {
     #       to setup the environment
     # @link https://github.com/d3p1/docker-magento/tree/756728d9dfb52318c64de923c500a027150ca38e/src/setup/services/search
     ##
-    BASE_SEARCH_SERVICE=$search_engine
-    export BASE_SEARCH_SERVICE
+    SCRIPT_SEARCH_SERVICE=$search_engine
+    export SCRIPT_SEARCH_SERVICE
     case $search_engine in
         "elasticsearch")
-            BASE_MAGENTO_SEARCH_ENGINE_HOST="elasticsearch"
-            BASE_MAGENTO_SEARCH_ENGINE_PORT="9200"
-            MAGENTO_SEARCH_ENGINE="elasticsearch7"
+            SCRIPT_MAGENTO_SEARCH_ENGINE_HOST="elasticsearch"
+            SCRIPT_MAGENTO_SEARCH_ENGINE_PORT="9200"
+            SCRIPT_MAGENTO_SEARCH_ENGINE="elasticsearch7"
             ;;
         "opensearch")
-            BASE_MAGENTO_SEARCH_ENGINE_HOST="opensearch"
-            BASE_MAGENTO_SEARCH_ENGINE_PORT="9200"
-            MAGENTO_SEARCH_ENGINE="opensearch"
+            SCRIPT_MAGENTO_SEARCH_ENGINE_HOST="opensearch"
+            SCRIPT_MAGENTO_SEARCH_ENGINE_PORT="9200"
+            SCRIPT_MAGENTO_SEARCH_ENGINE="opensearch"
             ;;
     esac
-    export BASE_MAGENTO_SEARCH_ENGINE_HOST 
-    export BASE_MAGENTO_SEARCH_ENGINE_PORT 
-    export MAGENTO_SEARCH_ENGINE 
+    export SCRIPT_MAGENTO_SEARCH_ENGINE_HOST 
+    export SCRIPT_MAGENTO_SEARCH_ENGINE_PORT 
+    export SCRIPT_MAGENTO_SEARCH_ENGINE 
 }
 
 ##

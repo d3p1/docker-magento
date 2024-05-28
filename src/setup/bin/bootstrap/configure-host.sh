@@ -48,9 +48,8 @@ main() {
 # @return void
 ##
 _configure_magento_static_content_deploy_jobs() {
-    local MAGENTO_STATIC_CONTENT_DEPLOY_JOBS
-    MAGENTO_STATIC_CONTENT_DEPLOY_JOBS=get_number_cpus
-    export MAGENTO_STATIC_CONTENT_DEPLOY_JOBS
+    SCRIPT_MAGENTO_STATIC_CONTENT_DEPLOY_JOBS=get_number_cpus
+    export SCRIPT_MAGENTO_STATIC_CONTENT_DEPLOY_JOBS
 }
 
 ##

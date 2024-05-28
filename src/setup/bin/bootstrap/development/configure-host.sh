@@ -39,6 +39,16 @@ main() {
 # @return void
 ##
 _configure_docker() {
+    ##
+    # @note Standard configuration of Docker
+    ##
     echo "Configuring Docker..."
     configure_docker
+
+    ##
+    # @note Export environment variable required for 
+    #       Docker Compose `traefik` service
+    ##
+    SCRIPT_DOCKER_PATH=/var/run/docker.sock
+    export SCRIPT_DOCKER_PATH
 }

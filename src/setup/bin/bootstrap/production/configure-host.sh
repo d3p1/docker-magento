@@ -67,8 +67,8 @@ _configure_docker_rootless_mode() {
     #       Docker Compose `traefik` service
     # @note The `$DOCKER_PATH` variable is created by the rootless mode script
     ##
-    BASE_DOCKER_PATH=$DOCKER_PATH
-    export BASE_DOCKER_PATH
+    SCRIPT_DOCKER_PATH=$DOCKER_PATH
+    export SCRIPT_DOCKER_PATH
 }
 
 ##

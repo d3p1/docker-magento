@@ -40,7 +40,7 @@ main() {
     mkdir -p "$ssl_cert_dir"
     generate_ssl_certifcates \
     "magento" \
-    "$BASE_URL" \
+    "$SCRIPT_BASE_URL" \
     "$ssl_cert_dir"
 
     ##
@@ -63,9 +63,9 @@ main() {
 # @link   https://stackoverflow.com/questions/4749330/how-to-test-if-string-exists-in-file-with-bash
 ##
 _add_domain_to_hosts() {
-    if ! grep -q "$BASE_URL" /etc/hosts; then
+    if ! grep -q "$SCRIPT_BASE_URL" /etc/hosts; then
         echo "Your system password is needed to add an entry to /etc/hosts..."
-        echo "127.0.0.1 ::1 $BASE_URL" | sudo tee -a /etc/hosts
+        echo "127.0.0.1 ::1 $SCRIPT_BASE_URL" | sudo tee -a /etc/hosts
     fi
 }
 
@@ -82,17 +82,17 @@ _init_dev_env() {
     # @link https://github.com/d3p1/docker-magento/blob/6cd8c58f3dee7eac2d60fca517acf2de82c22ad9/src/setup/services/web/.env#L22
     # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/images/php/8.2-cli/bin/deploy#L36
     ##
-    BASE_WITH_XDEBUG="1"
-    BASE_MAGENTO_RUN_MODE="developer"
-    export BASE_WITH_XDEBUG
-    export BASE_MAGENTO_RUN_MODE
+    SCRIPT_BASE_WITH_XDEBUG="1"
+    SCRIPT_MAGENTO_RUN_MODE="developer"
+    export SCRIPT_BASE_WITH_XDEBUG
+    export SCRIPT_MAGENTO_RUN_MODE
 
     ##
     # @note Enable Docker Compose in developer mode 
     # @link https://github.com/d3p1/docker-magento/blob/756728d9dfb52318c64de923c500a027150ca38e/src/setup/.env#L85
     ##
-    COMPOSE_FILE="docker-compose.yml:docker-compose.dev.yml:services/search/${BASE_SEARCH_SERVICE}/docker-compose.yml"
-    export COMPOSE_FILE
+    SCRIPT_COMPOSE_FILE="docker-compose.yml:docker-compose.dev.yml:services/search/${SCRIPT_SEARCH_SERVICE}/docker-compose.yml"
+    export SCRIPT_COMPOSE_FILE
 }
 
 ##
@@ -106,8 +106,8 @@ _link_source_code() {
     echo "Would you like to use an specific path to work with the project:"
     read -r source_code_path
     if [ -n "$source_code_path" ]; then
-        BASE_DEV_DOC_ROOT_DIR="$source_code_path"
-        export BASE_DEV_DOC_ROOT_DIR
+        SCRIPT_DEV_DOC_ROOT_DIR="$source_code_path"
+        export SCRIPT_DEV_DOC_ROOT_DIR
     fi
 }
 

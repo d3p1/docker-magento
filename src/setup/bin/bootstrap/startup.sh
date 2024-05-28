@@ -70,8 +70,8 @@ _install_platform() {
     local magento_version
     echo "What Magento version would you like to install?"
     read -r magento_version
-    BASE_MAGENTO_VERSION="$magento_version"
-    export BASE_MAGENTO_VERSION
+    SCRIPT_MAGENTO_VERSION="$magento_version"
+    export SCRIPT_MAGENTO_VERSION
     docker compose run cli init 0
 }
 

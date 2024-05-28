@@ -29,6 +29,12 @@ source $BASE_DIR/lib/execute-menu.sh
 # Main
 #
 # @return void
+# @note   This script will generate `SCRIPT_` environment variables (with
+#         values provided by the user) that will be used to deploy env files 
+#         that allow the launch and startup of a 
+#         Docker Compose Magento environment
+# @note   The env files reference these `SCRIPT_` environment variables
+#         and they are replaced by the `envsubst` command
 ##
 main() {
     local env
