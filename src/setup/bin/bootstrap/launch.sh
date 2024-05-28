@@ -243,7 +243,6 @@ _launch() {
 # Generate infra files in current directory where this script was executed
 #
 # @return void
-# @todo   Improve copy logic
 ##
 _generate_infra_files() {
     ##
@@ -266,11 +265,6 @@ _generate_infra_files() {
     ##
     export -f envsubst_file
     find ./services -type f -name ".env" -exec bash -c 'envsubst_file "$0"' {} \;
-
-    ##
-    # @note Remove unneeded Traefik `.gitignore` file
-    ##
-    rm ./services/traefik/.gitignore
 }
 
 ##
