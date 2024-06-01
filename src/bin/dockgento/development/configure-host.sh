@@ -49,6 +49,11 @@ _configure_docker() {
     # @note Export environment variable required for 
     #       Docker Compose `traefik` service
     ##
-    SCRIPT_DOCKER_PATH=/var/run/docker.sock
+    SCRIPT_DOCKER_PATH="/var/run/docker.sock"
     export SCRIPT_DOCKER_PATH
 }
+
+##
+# @note Call main
+##
+main "$@"
