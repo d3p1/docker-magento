@@ -259,7 +259,7 @@ _generate_infra_files() {
     # @note Replace environment variables inside `.env` files with
     #       defined environment variables during this script
     ##
-    envsubst_files "$BASE_DIR" ".env"
+    envsubst_files ".env"
 }
 
 ##
