@@ -1,3 +1,11 @@
+## [1.16.3](https://github.com/d3p1/docker-magento/compare/v1.16.2...v1.16.3) (2024-06-01)
+
+
+### Bug Fixes
+
+* adjust envsubst logic for infra file generation [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([86f6a63](https://github.com/d3p1/docker-magento/commit/86f6a639f7ddb5ceca85f0899c143b6af4021b4a))
+* adjust script paths so it is used the dockergento folder [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([66069ee](https://github.com/d3p1/docker-magento/commit/66069ee073b336627572df4c421940a9160502b9))
+
 ## [1.16.2](https://github.com/d3p1/docker-magento/compare/v1.16.1...v1.16.2) (2024-05-28)
 
 
