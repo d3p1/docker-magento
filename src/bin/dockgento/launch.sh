@@ -16,7 +16,7 @@ set -eu
 ##
 source $BASE_DIR/lib/execute-script.sh
 source $BASE_DIR/lib/execute-menu.sh
-source $BASE_DIR/lib/envsubst-file.sh
+source $BASE_DIR/lib/envsubst-files.sh
 
 ##
 # Main
@@ -258,13 +258,8 @@ _generate_infra_files() {
     ##
     # @note Replace environment variables inside `.env` files with
     #       defined environment variables during this script
-    # @note It is required to export the `envsubst_file` function because
-    #       the subshell executed by `find` won't be able to access 
-    #       this function
-    # @link https://stackoverflow.com/questions/4321456/find-exec-a-shell-function-in-linux
     ##
-    export -f envsubst_file
-    find ./services -type f -name ".env" -exec bash -c 'envsubst_file "$0"' {} \;
+    envsubst_files "$BASE_DIR" ".env"
 }
 
 ##
