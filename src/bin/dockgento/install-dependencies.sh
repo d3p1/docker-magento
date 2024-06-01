@@ -32,7 +32,7 @@ main() {
     ##
     # @note Execute script that installs dependencies required by environment
     ##
-    execute_script "$BASE_DIR/bootstrap/$1/install-dependencies.sh"
+    execute_script "$BASE_DIR/dockgento/$1/install-dependencies.sh"
 
     ##
     # @note Return with success

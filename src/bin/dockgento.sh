@@ -87,7 +87,7 @@ main() {
 _execute_bootstrap_script() {
     local script
 
-    script="$BASE_DIR/bootstrap/$1"
+    script="$BASE_DIR/dockgento/$1"
     shift
     execute_script "$script" "$@"
 }

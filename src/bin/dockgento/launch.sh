@@ -63,7 +63,7 @@ main() {
     ##
     # @note Execute script that launches environment
     ##
-    execute_script "$BASE_DIR/bootstrap/$1/launch.sh"
+    execute_script "$BASE_DIR/dockgento/$1/launch.sh"
 
     ##
     # @note Launch project

@@ -4,6 +4,7 @@
 # @description An utility to install Docker tools
 # @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
 # @todo        For now, this utility only works with Debian
+# @todo        Analyze why first attempt of installation always fails
 ##
 
 ##

@@ -34,7 +34,7 @@ main() {
     # @note Execute script that configures host considering 
     #       respective environment
     ##
-    execute_script "$BASE_DIR/bootstrap/$1/configure-host.sh"
+    execute_script "$BASE_DIR/dockgento/$1/configure-host.sh"
 
     ##
     # @note Return with success
