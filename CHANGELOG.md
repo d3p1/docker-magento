@@ -1,3 +1,10 @@
+## [1.16.4](https://github.com/d3p1/docker-magento/compare/v1.16.3...v1.16.4) (2024-06-01)
+
+
+### Bug Fixes
+
+* adjust envsubst logic [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([7919fb9](https://github.com/d3p1/docker-magento/commit/7919fb922af0c0d190213b0038796b7dd0eac340))
+
 ## [1.16.3](https://github.com/d3p1/docker-magento/compare/v1.16.2...v1.16.3) (2024-06-01)
 
 
