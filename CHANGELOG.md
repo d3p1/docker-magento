@@ -1,3 +1,15 @@
+# [1.17.0](https://github.com/d3p1/docker-magento/compare/v1.16.4...v1.17.0) (2024-06-01)
+
+
+### Bug Fixes
+
+* adjust configure host script execution & adjust docker config [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([c1327fa](https://github.com/d3p1/docker-magento/commit/c1327fa9122719c8997c670c881c5bae88b1ec4b))
+
+
+### Features
+
+* add docker CLI installation without interaction [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([549a880](https://github.com/d3p1/docker-magento/commit/549a880cc8803ac112038163141681735a7360b2))
+
 ## [1.16.4](https://github.com/d3p1/docker-magento/compare/v1.16.3...v1.16.4) (2024-06-01)
 
 
