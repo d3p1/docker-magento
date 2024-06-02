@@ -18,7 +18,6 @@ configure_docker() {
     #       without `sudo`
     ##
     sudo usermod -aG docker "$USER"
-    newgrp docker
 }
 
 ##
