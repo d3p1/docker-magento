@@ -11,6 +11,7 @@
 # and replace them with `envsubst` result
 #
 # @param  string $1 Pattern
+# @param  string $2 Variables to replace
 # @return void
 # @link   https://stackoverflow.com/questions/9612090/how-to-loop-through-file-names-returned-by-find
 # @link   https://unix.stackexchange.com/questions/181937/how-create-a-temporary-file-in-shell-script
@@ -20,6 +21,6 @@ envsubst_files() {
     for file in **/$1; do
         local tmp
         tmp=$(mktemp)
-        envsubst < "$file" > "$tmp" && mv "$tmp" "$file"
+        envsubst "$2" < "$file" > "$tmp" && mv "$tmp" "$file"
     done
 }
