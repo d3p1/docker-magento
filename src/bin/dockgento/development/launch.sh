@@ -49,6 +49,11 @@ main() {
     _init_dev_env
 
     ##
+    # @note Mount source code to containers
+    ##
+    _mount_source_code
+
+    ##
     # @note Return with success
     ##
     return 0
@@ -96,19 +101,21 @@ _init_dev_env() {
 }
 
 ##
-# Link source code to required project containers
+# Mount source code to required project containers
 #
 # @return void
 # @link   https://github.com/d3p1/docker-magento/blob/3cc15c3c3b674805e5dc7dcae84d6155964c0c25/src/setup/docker-compose.dev.yml#L48
 ##
-_link_source_code() {
+_mount_source_code() {
     local source_code_path
     echo "Would you like to use an specific path to work with the project:"
     read -r source_code_path
     if [ -n "$source_code_path" ]; then
         SCRIPT_DEV_DOC_ROOT_DIR="$source_code_path"
-        export SCRIPT_DEV_DOC_ROOT_DIR
+    else
+        SCRIPT_DEV_DOC_ROOT_DIR="./www"
     fi
+    export SCRIPT_DEV_DOC_ROOT_DIR
 }
 
 ##
