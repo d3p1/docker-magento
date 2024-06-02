@@ -65,7 +65,7 @@ main() {
     ##
     # @note Start services in launched environment
     ##
-    _execute_bootstrap_script "startup"
+    _execute_bootstrap_script "startup.sh"
 
     ##
     # @note Return with success
