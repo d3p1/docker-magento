@@ -58,12 +58,17 @@ main() {
     _execute_bootstrap_script "configure-host.sh" "$env"
 
     ##
-    # @note Launch
+    # @note Configure services
     ##
-    _execute_bootstrap_script "launch.sh" "$env"
+    _execute_bootstrap_script "configure-services.sh" "$env"
 
     ##
-    # @note Start services in launched environment
+    # @note Launch environment
+    ##
+    _execute_bootstrap_script "launch.sh"
+
+    ##
+    # @note Execute startup services
     ##
     _execute_bootstrap_script "startup.sh"
 

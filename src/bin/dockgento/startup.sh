@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##
-# @description Startup (configure/start services in launched environment)
+# @description Execute startup services
 # @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
 ##
 
@@ -11,6 +11,9 @@
 ##
 set -eu
 
+##
+# @note Import required utilities
+##
 source $BASE_DIR/lib/mysql/normalize-dump.sh
 
 ##

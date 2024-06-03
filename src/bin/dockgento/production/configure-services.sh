@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##
-# @description Launch production environment
+# @description Configure services for production environment
 # @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
 ##
 
@@ -17,8 +17,6 @@ set -eu
 # @return void
 ##
 main() {
-    echo "Launch production environment"
-
     ##
     # @note Init production environment. Setup required environment variables
     ##
