@@ -65,7 +65,7 @@ main() {
     ##
     # @note Launch environment
     ##
-    _execute_bootstrap_script "launch.sh"
+    _execute_bootstrap_script "launch.sh" "$env"
 
     ##
     # @note Execute startup services

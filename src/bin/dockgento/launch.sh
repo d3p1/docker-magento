@@ -19,9 +19,15 @@ source $BASE_DIR/lib/envsubst-files.sh
 ##
 # Main
 # 
+# @param  string $1 Environment key 
 # @return void
 ##
 main() {
+    ##
+    # @note Execute script that launches environment
+    ##
+    execute_script "$BASE_DIR/dockgento/$1/launch.sh"
+    
     ##
     # @note Generate infra files so it is possible to continue using the
     #       defined environment configuration

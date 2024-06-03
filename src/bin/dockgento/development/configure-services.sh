@@ -12,11 +12,6 @@
 set -eu
 
 ##
-# @note Import required utilities
-##
-source $BASE_DIR/lib/mkcert/generate-ssl-certificates.sh
-
-##
 # Main
 # 
 # @return void
