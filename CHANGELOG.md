@@ -1,3 +1,19 @@
+# [1.18.0](https://github.com/d3p1/docker-magento/compare/v1.17.0...v1.18.0) (2024-06-03)
+
+
+### Bug Fixes
+
+* adjust docker configuration for development environment [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([a1a39a7](https://github.com/d3p1/docker-magento/commit/a1a39a735b9da1c1811ddea345ee3f205a5709bf))
+* adjust source code mount to dev containers [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([654f6a2](https://github.com/d3p1/docker-magento/commit/654f6a2a0ea7103d5101cebd35403da3b5dea3e6))
+* adjust startup script execution [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([c4bde38](https://github.com/d3p1/docker-magento/commit/c4bde3810c1bd64b7faab258f5e03b6621826eec))
+* improve cli execution service [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([508c3c0](https://github.com/d3p1/docker-magento/commit/508c3c06899888e28b7636ae1d62c7d433b92491))
+* replace only variables genareted by the script in infra files [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([64e6d5c](https://github.com/d3p1/docker-magento/commit/64e6d5c282e24670e37b5159c3300e035e8ecc95))
+
+
+### Features
+
+* add configure services script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([fc03c82](https://github.com/d3p1/docker-magento/commit/fc03c821e76e65ce97b8efded603d88a4730eea4))
+
 # [1.17.0](https://github.com/d3p1/docker-magento/compare/v1.16.4...v1.17.0) (2024-06-01)
 
 
