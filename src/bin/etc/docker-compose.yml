@@ -14,6 +14,8 @@
 # @note        It is added a `cron` profile to the `cron` service so it is
 #              easier to enable it using the `COMPOSE_PROFILES` environment 
 #              variable
+# @note        It is added a `cli` profile to create the related service/s
+#              on demand
 # @link        https://github.com/magento/magento-cloud-docker/blob/9998e5615a37cc584ac26b236104ae040aa6e0c5/images/varnish/7.1.1/etc/default.vcl#L9 
 # @link        https://docs.docker.com/compose/profiles/
 ##
@@ -97,6 +99,8 @@ services:
       - ~/composer:${BASE_COMPOSER_HOME}
     env_file:
       - services/magento/.env
+    profiles:
+      - setup
 
   cron:
     image:

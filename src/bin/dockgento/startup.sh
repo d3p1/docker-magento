@@ -52,7 +52,7 @@ main() {
     echo "Would you like to start Magento cron service? y(es) or n(o)"
     read -r is_cron_service_started
     if [ "$is_cron_service_started" = "y" ]; then
-        docker compose start cron
+        docker compose up cron
     fi
 
     ##
@@ -65,6 +65,9 @@ main() {
 # Install platform
 #
 # @return void
+# @note   It is used `docker compose run cli` instead of `docker compose up cli`
+#         to be able to define command to run (it is not possible to do that
+#         using `docker compose up <service>`)
 ##
 _install_platform() {
     local magento_version
@@ -72,20 +75,23 @@ _install_platform() {
     read -r magento_version
     SCRIPT_MAGENTO_VERSION="$magento_version"
     export SCRIPT_MAGENTO_VERSION
-    docker compose run cli init 0
+    docker compose run --rm cli init 0
 }
 
 ##
 # Reinstall platform
 #
 # @return void
+# @note   It is used `docker compose run cli` instead of `docker compose up cli`
+#         to be able to define command to run (it is not possible to do that
+#         using `docker compose up <service>`)
 ##
 _reinstall_platform() {
     local dump_path
     echo "Introduce the dump path:"
     read -r dump_path    
     _init_db "$dump_path"
-    docker compose run cli init 1
+    docker compose run --rm cli init 1
 }
 
 ##
