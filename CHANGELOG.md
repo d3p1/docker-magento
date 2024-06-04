@@ -1,3 +1,10 @@
+## [1.18.2](https://github.com/d3p1/docker-magento/compare/v1.18.1...v1.18.2) (2024-06-04)
+
+
+### Bug Fixes
+
+* import SCRIPT_MAGENTO_STATIC_CONTENT_DEPLOY_JOBS variable into generate infra files [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([1229b35](https://github.com/d3p1/docker-magento/commit/1229b3565584764cd5eba70273e3cca634501125))
+
 ## [1.18.1](https://github.com/d3p1/docker-magento/compare/v1.18.0...v1.18.1) (2024-06-04)
 
 
