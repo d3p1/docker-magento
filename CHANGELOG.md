@@ -1,3 +1,11 @@
+## [1.18.1](https://github.com/d3p1/docker-magento/compare/v1.18.0...v1.18.1) (2024-06-04)
+
+
+### Bug Fixes
+
+* add Magento credentials configuration to configure service script [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([ef1263f](https://github.com/d3p1/docker-magento/commit/ef1263f13a05552e412684f58a74ee30d47edc69))
+* adjust launch script for development environment [[#1](https://github.com/d3p1/docker-magento/issues/1)] ([4aac2a6](https://github.com/d3p1/docker-magento/commit/4aac2a6360060e745af0895869ee3d34336d70f2))
+
 # [1.18.0](https://github.com/d3p1/docker-magento/compare/v1.17.0...v1.18.0) (2024-06-03)
 
 
