@@ -36,6 +36,12 @@ main() {
     _configure_email_address
 
     ##
+    # @note Configure Composer credentials required to install/reinstall/update
+    #       Magento packages
+    ##
+    _configure_composer_magento_credentials
+
+    ##
     # @note Configure the PHP version that will be used 
     #       by the Magento platform
     ##
@@ -111,6 +117,34 @@ _configure_email_address() {
     ##
     SCRIPT_BASE_USER_EMAIL="$email"
     export SCRIPT_BASE_USER_EMAIL
+}
+
+##
+# Configure Composer Magento credentials
+#
+# @return void
+##
+_configure_composer_magento_credentials() {
+    local username
+    local password
+
+    ##
+    # @note Get credentials
+    ##
+    echo "Composer Magento username:"
+    read -r username
+    echo "Composer Magento password:"
+    read -r password
+
+    ##
+    # @note Export environment variable required for 
+    #       our Docker Compose `cli` service (the Magento platform requires
+    #       it to download platform packages)
+    ##
+    SCRIPT_COMPOSER_MAGENTO_USERNAME="$username"
+    SCRIPT_COMPOSER_MAGENTO_PASSWORD="$password"
+    export SCRIPT_COMPOSER_MAGENTO_USERNAME
+    export SCRIPT_COMPOSER_MAGENTO_PASSWORD
 }
 
 ##
