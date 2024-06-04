@@ -85,7 +85,7 @@ services:
     volumes:
       - docroot:/app
     env_file:
-      - services/php/.env
+      - services/magento/.env
     labels:
       - traefik.enable=false
     restart:

@@ -48,7 +48,7 @@ services:
       - ${BASE_DEV_DOC_ROOT_DIR}:/app
       - ~/composer:${BASE_COMPOSER_HOME}
     env_file:
-      - services/php/.env
+      - services/magento/.env
     restart:
       always
     labels:
